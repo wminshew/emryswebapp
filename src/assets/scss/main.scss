@@ -1,0 +1,183 @@
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * You can see the styles here:
+ * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/preflight";
+ */
+@tailwind preflight;
+
+/**
+ * This injects any component classes registered by plugins.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/components";
+ */
+@tailwind components;
+
+$base-black: #2C2C31;
+
+#app {
+  font-family: "GidoleRegular", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: $base-black
+  // color: config('colors.grey-darkest');
+}
+
+.navbar-svg {
+  @apply h-8 w-8 fill-current;
+  
+  &:hover {
+    @apply text-grey-darker;
+  }
+}
+
+.navbar-link {
+  @apply inline text-black no-underline ml-4 py-1;
+
+  &:hover {
+    @apply text-grey-darker;
+  }
+  &-current {
+    box-shadow: 0 2px config('colors.primary');
+  }
+}
+
+.navbar-dropdown {
+  @apply block text-black no-underline border-t border-grey-lighter py-3;
+
+  &:hover {
+    @apply text-grey-darker;
+  }
+  &-current {
+    @apply text-primary;
+  }
+}
+
+.btn {
+    @apply shadow text-white font-semibold py-2 px-4 rounded;
+  &-disabled {
+    @apply bg-grey;
+  }
+  &-primary {
+    @apply bg-primary;
+
+    &:hover {
+      @apply bg-primary-light;
+    }
+    &:focus {
+      @apply shadow-outline outline-none;
+    }
+  }
+}
+
+.alert {
+  @apply w-full max-w-xs mx-auto mt-8 border px-4 py-4 rounded relative;
+
+  &-success {
+    @apply bg-green-lightest border-green-light text-green-dark;
+  }
+  &-warning {
+    @apply bg-yellow-lightest border-yellow-light text-yellow-dark;
+  }
+  &-danger {
+    @apply bg-red-lightest border-red-light text-red-dark;
+  }
+}
+
+/* transitions */
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 200ms ease;
+  transition: height 500ms ease;
+//   transition: all 200ms cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateY(-30%);
+  opacity: 0;
+  height: 0; // doesn't really seem like this is working?
+}
+
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+.svg-icon{
+  width: 1em;
+  height: 1em;
+
+  path,
+  polygon,
+  rect{
+    fill: $base-black;
+  }
+
+  circle{
+    stroke: $base-black;
+    stroke-width: 1;
+  }
+}
+
+/* CSS Loaders */
+// @import "@/assets/scss/ball-clip-rotate";
+// @import "ball-clip-rotate";
+
+/**
+ * Here you would add any of your custom component classes; stuff that you'd
+ * want loaded *before* the utilities so that the utilities could still
+ * override them.
+ *
+ * Example:
+ *
+ * .btn { ... }
+ * .form-input { ... }
+ *
+ * Or if using a preprocessor or `postcss-import`:
+ *
+ * @import "components/buttons";
+ * @import "components/forms";
+ */
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/utilities";
+ */
+@tailwind utilities;
+
+/**
+ * Here you would add any custom utilities you need that don't come out of the
+ * box with Tailwind.
+ *
+ * Example :
+ *
+ * .bg-pattern-graph-paper { ... }
+ * .skew-45 { ... }
+ *
+ * Or if using a preprocessor or `postcss-import`:
+ *
+ * @import "utilities/background-patterns";
+ * @import "utilities/skew-transforms";
+ */
