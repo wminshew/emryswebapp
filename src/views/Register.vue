@@ -142,8 +142,9 @@ import Alert from "@/components/Alert.vue";
 import axios from "axios";
 import { Validator } from "vee-validate";
 
-const registerURL =
-  "https://cors-anywhere.herokuapp.com/https://api.emrys.io/user";
+const registerURL = "https://api.emrys.io/user";
+// const registerURL =
+//   "https://cors-anywhere.herokuapp.com/https://api.emrys.io/user";
 
 const dict = {
   custom: {
