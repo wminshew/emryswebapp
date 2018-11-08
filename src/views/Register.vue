@@ -224,7 +224,7 @@ export default Vue.extend({
             if (error.response) {
               this.alertText = error.response.data.trim(); // TODO
             } else if (error.request) {
-              this.alertText = error.request.trim();
+              this.alertText = "Error: no server response received";
             } else {
               this.alertText = error.message.trim();
             }
