@@ -1,9 +1,8 @@
 <template>
   <div>
     <Alert 
-      :alert-visible="alertVisible" 
+      :alert-visible.sync="alertVisible" 
       :alert-type="alertType"
-      @hide-alert="alertVisible = false"
     >
       {{ alertText }}
     </Alert>

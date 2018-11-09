@@ -10,7 +10,7 @@
     </span>
     <span 
       class="absolute pin-t pin-b pin-r px-1 py-1"
-      @click="$emit('hide-alert')"
+      @click="$emit('update:alertVisible', false)"
     >
       <svg 
         class="fill-current h-6 w-6" 
