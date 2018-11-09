@@ -60,13 +60,13 @@
       <div class="md:flex md:items-center">
         <div class="md:w-1/3" />
         <div class="md:w-2/3">
-          <a 
+          <router-link 
+            :to="{ name: 'reset-password' }"
             class="text-xs text-primary hover:text-primary-lighter" 
             style="text-decoration:none;"
-            href="#"
           >
             Forgot password?
-          </a>
+          </router-link>
         </div>
       </div>
     </form>

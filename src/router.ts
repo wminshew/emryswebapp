@@ -59,13 +59,31 @@ export default new Router({
         import(/* webpackChunkName: "register" */ "./views/Register.vue")
     },
     {
-      path: "*",
-      name: "notFound",
+      path: "/reset-password",
+      name: "reset-password",
       // route level code-splitting
-      // this generates a separate chunk (notfound.[hash].js) for this route
+      // this generates a separate chunk (reset-password.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "notfound" */ "./views/NotFound.vue")
+        import(/* webpackChunkName: "reset-password" */ "./views/ResetPassword.vue")
+    },
+    {
+      path: "/confirm-reset-password",
+      name: "confirm-reset-password",
+      // route level code-splitting
+      // this generates a separate chunk (confirm-reset-password.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "confirm-reset-password" */ "./views/ConfirmResetPassword.vue")
+    },
+    {
+      path: "*",
+      name: "not-found",
+      // route level code-splitting
+      // this generates a separate chunk (not-found.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "not-found" */ "./views/NotFound.vue")
     }
   ]
 });

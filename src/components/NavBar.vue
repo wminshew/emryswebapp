@@ -6,7 +6,7 @@
     <div
       class="max-w-lg flex flex-no-shrink flex-grow flex-no-wrap mx-2 my-2"
     >
-      <router-link to="/">
+      <router-link :to="{ name: 'home' }">
         <img 
           class="h-8 w-32 items-center mt-1"
           alt="emrys logo" 
@@ -50,35 +50,35 @@
           <router-link
             class="navbar-link"
             active-class="navbar-link-current"
-            to="/about"
+            :to="{ name: 'about' }"
           >
             About
           </router-link>
           <router-link
             class="navbar-link"
             active-class="navbar-link-current"
-            to="/user"
+            :to="{name: 'user'}"
           >
             User
           </router-link>
           <router-link
             class="navbar-link"
             active-class="navbar-link-current"
-            to="/miner"
+            :to="{name: 'miner'}"
           >
             Miner
           </router-link>
           <router-link
             class="navbar-link"
             active-class="navbar-link-current"
-            to="/login"
+            :to="{name: 'login'}"
           >
             Login
           </router-link>
           <router-link
             class="navbar-link"
             active-class="navbar-link-current"
-            to="/register"
+            :to="{name: 'register'}"
           >
             Register
           </router-link>
@@ -93,35 +93,35 @@
         <router-link
           class="navbar-dropdown"
           active-class="navbar-dropdown-current"
-          to="/about"
+          :to="{name: 'about'}"
         >
           About
         </router-link>
         <router-link
           class="navbar-dropdown"
           active-class="navbar-dropdown-current"
-          to="/user"
+          :to="{name: 'user'}"
         >
           User
         </router-link>
         <router-link
           class="navbar-dropdown"
           active-class="navbar-dropdown-current"
-          to="/miner"
+          :to="{name: 'miner'}"
         >
           Miner
         </router-link>
         <router-link
           class="navbar-dropdown"
           active-class="navbar-dropdown-current"
-          to="/login"
+          :to="{name: 'login'}"
         >
           Login
         </router-link>
         <router-link
           class="navbar-dropdown"
           active-class="navbar-dropdown-current"
-          to="/register"
+          :to="{name: 'register'}"
         >
           Register
         </router-link>
