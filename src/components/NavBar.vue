@@ -69,6 +69,7 @@
             Miner
           </router-link>
           <router-link
+            v-show="!loggedIn"
             class="navbar-link"
             active-class="navbar-link-current"
             :to="{name: 'login'}"
@@ -76,11 +77,28 @@
             Login
           </router-link>
           <router-link
+            v-show="!loggedIn"
             class="navbar-link"
             active-class="navbar-link-current"
             :to="{name: 'register'}"
           >
             Register
+          </router-link>
+          <router-link
+            v-show="loggedIn"
+            class="navbar-link"
+            active-class="navbar-link-current"
+            :to="{name: 'account'}"
+          >
+            Account
+          </router-link>
+          <router-link
+            v-show="loggedIn"
+            class="navbar-link"
+            :to="{name: 'home'}"
+            @click.native="$emit('update:bearerToken', '')"
+          >
+            Logout
           </router-link>
         </div>
       </div>
@@ -112,6 +130,7 @@
           Miner
         </router-link>
         <router-link
+          v-show="!loggedIn"
           class="navbar-dropdown"
           active-class="navbar-dropdown-current"
           :to="{name: 'login'}"
@@ -119,11 +138,28 @@
           Login
         </router-link>
         <router-link
+          v-show="!loggedIn"
           class="navbar-dropdown"
           active-class="navbar-dropdown-current"
           :to="{name: 'register'}"
         >
           Register
+        </router-link>
+        <router-link
+          v-show="loggedIn"
+          class="navbar-dropdown"
+          active-class="navbar-dropdown-current"
+          :to="{name: 'account'}"
+        >
+          Account
+        </router-link>
+        <router-link
+          v-show="loggedIn"
+          class="navbar-dropdown"
+          :to="{name: 'home'}"
+          @click.native="$emit('update:bearerToken', '')"
+        >
+          Logout
         </router-link>
       </div>
     </transition>
@@ -135,10 +171,21 @@ import Vue from "vue";
 
 export default Vue.extend({
   name: "NavBar",
+  props: {
+    bearerToken: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
       menuOpen: false
     };
+  },
+  computed: {
+    loggedIn(): boolean {
+      return this.bearerToken !== "";
+    }
   }
 });
 </script>

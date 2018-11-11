@@ -9,7 +9,7 @@
     <form
       id="register-form"
       class="w-full max-w-xs mx-auto mt-8"
-      action="https://api.emrys.io/user"
+      action="registerURL"
       method="post"
       @submit.prevent="postRegister"
     >
@@ -142,8 +142,6 @@ import axios from "axios";
 import { Validator } from "vee-validate";
 
 const registerURL = "https://api.emrys.io/user";
-// const registerURL =
-//   "https://cors-anywhere.herokuapp.com/https://api.emrys.io/user";
 
 const dict = {
   custom: {

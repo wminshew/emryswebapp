@@ -143,6 +143,7 @@ export default Vue.extend({
             this.alertText = resp.data.trim();
             this.alertVisible = true;
             this.loading = false;
+            // TODO: this.$router.push({ name: 'login', query: { alertType: this.alertType, alertText: this.alertText } })
           })
           .catch(error => {
             if (error.response) {
