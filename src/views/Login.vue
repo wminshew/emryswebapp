@@ -141,6 +141,9 @@ export default Vue.extend({
           email: this.email,
           password: this.password
         },
+        params: {
+          grantType: "password"
+        },
         validateStatus: status => {
           return status >= 200 && status < 300; // axios default
         }

@@ -70,6 +70,15 @@ export default new Router({
         import(/* webpackChunkName: "register" */ "./views/Register.vue")
     },
     {
+      path: "/confirm-email",
+      name: "confirm-email",
+      // route level code-splitting
+      // this generates a separate chunk (confirm-email.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "confirm-email" */ "./views/ConfirmEmail.vue")
+    },
+    {
       path: "/reset-password",
       name: "reset-password",
       // route level code-splitting
