@@ -141,7 +141,7 @@ import Alert from "@/components/Alert.vue";
 import axios from "axios";
 import { Validator } from "vee-validate";
 
-const registerURL = "https://api.emrys.io/user";
+const registerURL = "https://api.emrys.io/auth/account";
 
 const dict = {
   custom: {
@@ -205,6 +205,10 @@ export default Vue.extend({
           data: {
             email: this.email,
             password: this.password
+          },
+          params: {
+            user: this.checkedUser ? "1" : "",
+            miner: this.checkedSupplier ? "1" : ""
           },
           validateStatus: status => {
             return status >= 200 && status < 300; // axios default

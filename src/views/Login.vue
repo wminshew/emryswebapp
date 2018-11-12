@@ -92,7 +92,7 @@ import Vue from "vue";
 import Alert from "@/components/Alert.vue";
 import axios from "axios";
 
-const loginURL = "https://api.emrys.io/user/login";
+const loginURL = "https://api.emrys.io/auth/token";
 
 export default Vue.extend({
   name: "Login",

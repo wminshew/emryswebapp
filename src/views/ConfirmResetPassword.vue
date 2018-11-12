@@ -9,7 +9,7 @@
     <form
       id="register-form"
       class="w-full max-w-xs mx-auto mt-8"
-      action="https://api.emrys.io/user/confirm-reset-password"
+      action="confirmResetPasswordURL"
       method="post"
       @submit.prevent="postResetPassword"
     >
@@ -77,7 +77,7 @@ import axios from "axios";
 import { Validator } from "vee-validate";
 
 const confirmResetPasswordURL =
-  "https://api.emrys.io/user/confirm-reset-password";
+  "https://api.emrys.io/auth/confirm-reset-password";
 
 // TODO: move all dict rules to somewhere global
 const dict = {

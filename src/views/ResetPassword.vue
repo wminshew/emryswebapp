@@ -9,7 +9,7 @@
     <form
       id="register-form"
       class="w-full max-w-xs mx-auto mt-8"
-      action="https://api.emrys.io/user"
+      action="resetPasswordURL"
       method="post"
       @submit.prevent="postResetPassword"
     >
@@ -76,7 +76,7 @@ import Alert from "@/components/Alert.vue";
 import axios from "axios";
 import { Validator } from "vee-validate";
 
-const resetPasswordURL = "https://api.emrys.io/user/reset-password";
+const resetPasswordURL = "https://api.emrys.io/auth/reset-password";
 
 const dict = {
   custom: {
