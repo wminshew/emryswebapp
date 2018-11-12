@@ -168,8 +168,8 @@ export default Vue.extend({
     return {
       email: "",
       password: "",
-      checkedUser: false,
-      checkedSupplier: false,
+      checkedUser: true,
+      checkedSupplier: true,
       alertVisible: false,
       alertType: "success",
       alertText: "",
@@ -188,10 +188,10 @@ export default Vue.extend({
       if (!(this.checkedUser || this.checkedSupplier)) {
         return false;
       }
-      if (this.$validator.errors.has("email")) {
+      if (this.email === "" || this.$validator.errors.has("email")) {
         return false;
       }
-      if (this.$validator.errors.has("password")) {
+      if (this.password === "" || this.$validator.errors.has("password")) {
         return false;
       }
       return true;
