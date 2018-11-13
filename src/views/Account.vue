@@ -1,13 +1,7 @@
 <template>
   <div>
-    <div class="home">
-      <img 
-        alt="emrys logo" 
-        src="@/assets/logo.png"
-      >
-    </div>
-    <div>
-      <span>Super secure</span>
+    <div class="account">
+      <span>Super secure account page</span>
     </div>
   </div>
 </template>

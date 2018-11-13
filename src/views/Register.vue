@@ -153,7 +153,7 @@ const dict = {
       required: "Required",
       alpha_num: "Alphanumeric characters only",
       min: "Must be at least 8 characters",
-      max: "Must be less than 30 characters"
+      max: "Cannot be greater than 30 characters"
     }
   }
 };

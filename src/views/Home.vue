@@ -1,9 +1,6 @@
 <template>
   <div class="home">
-    <img 
-      alt="emrys logo" 
-      src="@/assets/logo.png"
-    >
+    <h1>Home page</h1>
   </div>
 </template>
 
