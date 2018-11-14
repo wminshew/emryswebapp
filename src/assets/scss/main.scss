@@ -100,6 +100,9 @@ $base-black: #2C2C31;
 }
 
 /* transitions */
+// .transition-menu-drop {
+//   transition: height 5s ease-in-out;
+// }
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
@@ -108,20 +111,20 @@ $base-black: #2C2C31;
   opacity: 0;
 }
 
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
 .slide-fade-enter-active,
 .slide-fade-leave-active {
-  transition: all 200ms ease;
-  transition: height 500ms ease;
-//   transition: all 200ms cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all 500ms ease;
 }
 
 .slide-fade-enter,
 .slide-fade-leave-to {
-  transform: translateY(-30%);
+  max-height: 0;
   opacity: 0;
-  height: 0; // doesn't really seem like this is working?
+}
+
+.slide-fade-enter-to,
+.slide-fade-leave {
+  max-height: 400px;
 }
 
 /* -----

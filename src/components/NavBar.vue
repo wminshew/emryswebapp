@@ -106,7 +106,7 @@
     <transition name="slide-fade">
       <div
         v-show="menuOpen"
-        class="block w-full text-lg font-semibold tracking-wide sm:hidden"
+        class="block w-full text-lg font-semibold tracking-wide overflow-hidden sm:hidden"
       >
         <router-link
           class="navbar-dropdown"
