@@ -1,9 +1,9 @@
 <template>
   <div
-    class="w-full max-w-xs mx-auto mt-8"
+    class="flex justify-center w-full max-w-xs mx-auto mt-8"
   >
     <svg 
-      class="absolute w-full pin-l text-center text-bold h-2 w-2"
+      class="w-full h-2 w-2"
       width="120" 
       height="30" 
       viewBox="0 0 120 30" 

@@ -47,9 +47,9 @@
       </div>
       <div class="md:flex md:items-center mt-6">
         <div class="md:w-1/3" />
-        <div class="md:w-2/3">
+        <div class="flex md:w-2/3 justify-center items-center">
           <button 
-            class="relative btn"
+            class="relative btn btn-primary flex items-center justify-center"
             :class="[btnActive ? btnPrimary : btnDisabled]"
             type="submit"
             :disabled="!btnActive"
@@ -58,7 +58,7 @@
               Reset Password
             </span>
             <img 
-              class="absolute w-full pin-l text-center text-bold h-2 w-2"
+              class="absolute w-full h-2 w-2"
               :class="{ invisible: !loading }"
               style="top: calc(50% - 0.25rem);"
               src="@/assets/svg-loaders/three-dots.svg"

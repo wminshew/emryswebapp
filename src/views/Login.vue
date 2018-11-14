@@ -52,18 +52,18 @@
           >
         </div>
       </div>
-      <div class="md:flex md:items-center mb-2">
+      <div class="md:flex mb-2">
         <div class="md:w-1/3" />
-        <div class="md:w-2/3">
+        <div class="flex md:w-2/3 justify-center items-center">
           <button 
-            class="relative btn btn-primary"
+            class="relative btn btn-primary flex items-center justify-center"
             type="submit"
           >
             <span :class="{ invisible: loading }">
               Login
             </span>
             <img 
-              class="absolute w-full pin-l text-center text-bold h-2 w-2"
+              class="absolute w-full h-2 w-2"
               :class="{ invisible: !loading }"
               style="top: calc(50% - 0.25rem);"
               src="@/assets/svg-loaders/three-dots.svg"
