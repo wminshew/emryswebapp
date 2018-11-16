@@ -33,9 +33,9 @@
           </li>
           <li>
             <router-link
-              :to="{ name: 'terms-of-service' }"
+              :to="{ name: 'docs' }"
             >
-              Terms of Service
+              Documentation
             </router-link>
           </li>
           <li>

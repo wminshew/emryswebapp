@@ -97,6 +97,18 @@ export default new Router({
         import(/* webpackChunkName: "confirm-reset-password" */ "./views/ConfirmResetPassword.vue")
     },
     {
+      path: "/documentation",
+      name: "docs",
+      beforeEnter() {
+        location.href = "https://docs.emrys.io";
+      }
+      // route level code-splitting
+      // this generates a separate chunk (terms-of-service.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      // component: () =>
+      //   import(/* webpackChunkName: "terms-of-service" */ "./views/TermsOfService.vue")
+    },
+    {
       path: "/terms-of-service",
       name: "terms-of-service",
       // route level code-splitting
