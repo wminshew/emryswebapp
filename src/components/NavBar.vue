@@ -46,7 +46,7 @@
             <path d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z" />
           </svg>
         </div>
-        <div class="hidden text-base font-semibold tracking-wide sm:flex lg:flex-grow lg:justify-end">
+        <div class="hidden text-base font-semibold tracking-wide sm:flex sm:items-center lg:flex-grow lg:justify-end">
           <router-link
             class="navbar-link"
             active-class="navbar-link-current"
@@ -59,14 +59,14 @@
             active-class="navbar-link-current"
             :to="{name: 'user'}"
           >
-            User
+            Users
           </router-link>
           <router-link
             class="navbar-link"
             active-class="navbar-link-current"
             :to="{name: 'miner'}"
           >
-            Miner
+            Miners
           </router-link>
           <router-link
             v-show="!loggedIn"
@@ -79,10 +79,14 @@
           <router-link
             v-show="!loggedIn"
             class="navbar-link"
-            active-class="navbar-link-current"
             :to="{name: 'register'}"
           >
-            Register
+            <button 
+              class="relative btn btn-primary items-center justify-center"
+              type="button"
+            >
+              Register
+            </button>
           </router-link>
           <router-link
             v-show="loggedIn"
@@ -108,51 +112,75 @@
         v-show="menuOpen"
         class="block w-full text-lg font-semibold tracking-wide overflow-hidden sm:hidden"
       >
-        <router-link
+        <div
           class="navbar-dropdown"
-          active-class="navbar-dropdown-current"
-          :to="{name: 'about'}"
         >
-          About
-        </router-link>
-        <router-link
+          <router-link
+            class="navbar-dropdown-text"
+            active-class="navbar-dropdown-current"
+            :to="{name: 'about'}"
+          >
+            About
+          </router-link>
+        </div>
+        <div
           class="navbar-dropdown"
-          active-class="navbar-dropdown-current"
-          :to="{name: 'user'}"
         >
-          User
-        </router-link>
-        <router-link
+          <router-link
+            class="navbar-dropdown-text"
+            active-class="navbar-dropdown-current"
+            :to="{name: 'user'}"
+          >
+            Users
+          </router-link>
+        </div>
+        <div
           class="navbar-dropdown"
-          active-class="navbar-dropdown-current"
-          :to="{name: 'miner'}"
         >
-          Miner
-        </router-link>
-        <router-link
-          v-show="!loggedIn"
+          <router-link
+            class="navbar-dropdown-text"
+            active-class="navbar-dropdown-current"
+            :to="{name: 'miner'}"
+          >
+            Miners
+          </router-link>
+        </div>
+        <div
           class="navbar-dropdown"
-          active-class="navbar-dropdown-current"
-          :to="{name: 'login'}"
         >
-          Login
-        </router-link>
-        <router-link
-          v-show="!loggedIn"
+          <router-link
+            v-show="!loggedIn"
+            class="navbar-dropdown-text"
+            active-class="navbar-dropdown-current"
+            :to="{name: 'login'}"
+          >
+            Login
+          </router-link>
+        </div>
+        <div
           class="navbar-dropdown"
-          active-class="navbar-dropdown-current"
-          :to="{name: 'register'}"
         >
-          Register
-        </router-link>
-        <router-link
+          <router-link
+            v-show="!loggedIn"
+            class="navbar-dropdown-text text-primary"
+            active-class="navbar-dropdown-current"
+            :to="{name: 'register'}"
+          >
+            Register
+          </router-link>
+        </div>
+        <div
           v-show="loggedIn"
           class="navbar-dropdown"
-          active-class="navbar-dropdown-current"
-          :to="{name: 'account'}"
         >
-          Account
-        </router-link>
+          <router-link
+            class="navbar-dropdown"
+            active-class="navbar-dropdown-current"
+            :to="{name: 'account'}"
+          >
+            Account
+          </router-link>
+        </div>
         <router-link
           v-show="loggedIn"
           class="navbar-dropdown"

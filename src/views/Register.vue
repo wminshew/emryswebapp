@@ -4,7 +4,7 @@
       :alert-visible.sync="alertVisible" 
       :alert-type="alertType"
     >
-      {{ alertText }}
+      {{ alertText | capitalize }}
     </Alert>
     <form
       id="register-form"
@@ -110,11 +110,47 @@
           > Supply GPUs</label>
         </label>
       </div>
+      <div class="align-middle text-left md:flex md:text-center md:items-center mt-6">
+        <div class="md:w-1/3">
+          <label 
+            class="block text-grey md:text-right mb-1 md:mb-0 pr-4" 
+          >
+            I agree to
+          </label>
+        </div>
+        <label class="text-grey align-middle mb-1 md:mb-0 md:w-2/3">
+          <input 
+            id="terms"
+            v-model="checkedTOSAndPrivacy"
+            class="align-middle"
+            type="checkbox"
+          >
+          <label
+            class="text-sm text-grey-dark"
+            for="terms"
+          >
+            <span> the </span>
+            <router-link
+              :to="{ name: 'terms-of-service' }"
+              class="text-sm text-grey-dark"
+              style="text-decoration: underline;"
+            >ToS</router-link>
+            <span> & </span>
+            <router-link 
+              :to="{ name: 'privacy-policy' }"
+              class="text-sm text-grey-dark"
+              style="text-decoration: underline;"
+            >
+              Privacy Policy
+            </router-link>
+          </label>
+        </label>
+      </div>
       <div class="md:flex md:items-center mt-6">
         <div class="md:w-1/3" />
         <div class="flex md:w-2/3 justify-center items-center">
           <button 
-            class="relative btn btn-primary flex items-center justify-center"
+            class="relative btn flex items-center justify-center"
             :class="[btnActive ? btnPrimary : btnDisabled]"
             type="submit"
             :disabled="!btnActive"
@@ -142,6 +178,8 @@ import axios from "axios";
 import { Validator } from "vee-validate";
 
 const registerURL = "https://api.emrys.io/auth/account";
+// const btnPrimary = "btn-primary";
+// const btnDisabled = "btn-disabled";
 
 const dict = {
   custom: {
@@ -170,6 +208,7 @@ export default Vue.extend({
       password: "",
       checkedUser: true,
       checkedSupplier: true,
+      checkedTOSAndPrivacy: false,
       alertVisible: false,
       alertType: "success",
       alertText: "",
@@ -185,6 +224,9 @@ export default Vue.extend({
   },
   methods: {
     validateForm(): boolean {
+      if (!this.checkedTOSAndPrivacy) {
+        return false;
+      }
       if (!(this.checkedUser || this.checkedSupplier)) {
         return false;
       }
@@ -208,7 +250,8 @@ export default Vue.extend({
           },
           params: {
             user: this.checkedUser ? "1" : "",
-            miner: this.checkedSupplier ? "1" : ""
+            miner: this.checkedSupplier ? "1" : "",
+            terms: this.checkedTOSAndPrivacy ? "1" : ""
           },
           validateStatus: status => {
             return status >= 200 && status < 300; // axios default

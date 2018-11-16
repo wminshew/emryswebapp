@@ -97,6 +97,24 @@ export default new Router({
         import(/* webpackChunkName: "confirm-reset-password" */ "./views/ConfirmResetPassword.vue")
     },
     {
+      path: "/terms-of-service",
+      name: "terms-of-service",
+      // route level code-splitting
+      // this generates a separate chunk (terms-of-service.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "terms-of-service" */ "./views/TermsOfService.vue")
+    },
+    {
+      path: "/privacy-policy",
+      name: "privacy-policy",
+      // route level code-splitting
+      // this generates a separate chunk (privacy-policy.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "privacy-policy" */ "./views/PrivacyPolicy.vue")
+    },
+    {
       path: "*",
       name: "not-found",
       // route level code-splitting

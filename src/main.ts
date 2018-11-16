@@ -21,6 +21,13 @@ router.beforeEach((to, from, next) => {
   }
 });
 
+Vue.filter("capitalize", (value: string) => {
+  if (!value) {
+    return "";
+  }
+  return value.charAt(0).toUpperCase() + value.slice(1);
+});
+
 new Vue({
   router,
   render: h => h(App)

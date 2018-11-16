@@ -50,38 +50,46 @@ $base-black: #2C2C31;
   @apply inline text-black no-underline ml-4 py-1;
 
   &:hover {
-    @apply text-grey-darker;
+    @apply text-primary;
   }
   &-current {
     box-shadow: 0 2px config('colors.primary');
   }
+  &:focus {
+    @apply outline-none;
+  }
 }
 
 .navbar-dropdown {
-  @apply block text-black no-underline border-t border-grey-lighter py-3;
-
-  &:hover {
-    @apply text-grey-darker;
+  @apply flex block text-black no-underline border-t border-grey-lighter py-3;
+  &-text {
+    @apply text-black no-underline
   }
+
   &-current {
-    @apply text-primary;
+    @apply no-underline text-black;
+    box-shadow: 0 2px config('colors.primary');
+  }
+  &:focus {
+    @apply outline-none;
   }
 }
 
 .btn {
-    @apply shadow text-white font-semibold py-2 px-4 rounded;
+  @apply shadow text-white font-semibold py-2 px-4 rounded;
+
   &-disabled {
     @apply bg-grey;
   }
   &-primary {
     @apply bg-primary;
 
-    &:hover {
-      @apply bg-primary-light;
-    }
-    &:focus {
-      @apply shadow-outline outline-none;
-    }
+  &:hover {
+    @apply bg-primary-light;
+  }
+  &:focus {
+    @apply outline-none;
+  }
   }
 }
 
@@ -96,6 +104,54 @@ $base-black: #2C2C31;
   }
   &-danger {
     @apply bg-red-lightest border-red-light text-red-dark;
+  }
+}
+
+#terms-of-service {
+  @apply flex text-left justify-center leading-tight my-8 mx-8;
+
+  & h2 {
+    @apply my-4
+  }
+  & p {
+    @apply my-2
+  }
+}
+
+#privacy-policy {
+  @apply flex text-left justify-center leading-tight my-8 mx-8;
+
+  & h2 {
+    @apply my-4
+  }
+  & h3 {
+    @apply my-3
+  }
+  & h4 {
+    @apply my-3
+  }
+  & p {
+    @apply my-2
+  }
+}
+
+#footer {
+  @apply w-full items-start justify-center bg-grey-lightest mt-12 pt-8 pb-16 flex flex-wrap;
+
+  & h3 {
+    padding: 0 0 0.5rem 0;
+  }
+  & ul {
+    list-style-type: none;
+    padding: 0 0 0 0;
+    // padding: 1rem 0 0 0;
+    & li {
+      padding: 0.15rem 0 0 0;
+      & a {
+        color: $base-black;
+        text-decoration: none;
+      }
+    }
   }
 }
 
@@ -114,6 +170,7 @@ $base-black: #2C2C31;
 .slide-fade-enter-active,
 .slide-fade-leave-active {
   transition: all 200ms ease;
+  // transition: all 1s cubic-bezier(0, 1, 0, 1);
 }
 
 .slide-fade-enter,

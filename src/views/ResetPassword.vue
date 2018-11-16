@@ -4,7 +4,7 @@
       :alert-visible.sync="alertVisible" 
       :alert-type="alertType"
     >
-      {{ alertText }}
+      {{ alertText | capitalize }}
     </Alert>
     <form
       id="register-form"
