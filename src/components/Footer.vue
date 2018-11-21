@@ -3,7 +3,7 @@
     id="footer"
   >
     <div
-      class="max-w-lg flex flex-wrap px-4 leading-normal flex-grow items-start justify-center"
+      class="max-w-lg flex flex-wrap px-10 leading-normal flex-grow items-start justify-center"
     >
       <div
         class="w-full text-center py-4 md:text-left md:w-1/4"

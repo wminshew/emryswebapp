@@ -1,13 +1,14 @@
 <template>
   <div 
     id="home"
-    class="relative"
+    class="relative max-h-screen m-auto overflow-hidden"
   >
     <img
       class="opacity-100 w-full"
-      width="8688"
-      height="5792"
-      src="../assets/hero-gray.png"
+      srcset="../assets/hero-gray-375pt.png 375w,
+              ../assets/hero-gray-1200pt.png 1200w"
+      sizes="(max-width: 576px) 375px,
+              1200px"
       alt="emrys"
     >
     <div
