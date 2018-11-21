@@ -8,12 +8,12 @@
     </Alert>
     <form 
       id="login-form"
-      class="w-full max-w-xs mx-auto mt-8"
+      class="w-full max-w-xs mx-auto py-8"
       action="loginURL"
       method="post"
       @submit.prevent="postLogin"
     >
-      <div class="md:flex md:items-center mb-6">
+      <div class="md:flex md:items-center mt-6">
         <div class="md:w-1/3">
           <label 
             class="block text-grey text-left md:text-right mb-1 md:mb-0 pr-4" 
@@ -33,7 +33,7 @@
           >
         </div>
       </div>
-      <div class="md:flex md:items-center mb-6">
+      <div class="md:flex md:items-center mt-6">
         <div class="md:w-1/3">
           <label 
             class="block text-grey text-left md:text-right mb-1 md:mb-0 pr-4" 
@@ -52,7 +52,7 @@
           >
         </div>
       </div>
-      <div class="md:flex mb-2">
+      <div class="md:flex mt-6">
         <div class="md:w-1/3" />
         <div class="flex md:w-2/3 justify-center items-center">
           <button 
@@ -71,7 +71,7 @@
           </button>
         </div>
       </div>
-      <div class="md:flex md:items-center">
+      <div class="md:flex md:items-center mt-2">
         <div class="md:w-1/3" />
         <div class="md:w-2/3">
           <router-link 

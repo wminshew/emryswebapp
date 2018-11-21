@@ -8,7 +8,7 @@
     </Alert>
     <form
       id="register-form"
-      class="w-full max-w-xs mx-auto mt-8"
+      class="w-full max-w-xs mx-auto py-8"
       action="registerURL"
       method="post"
       @submit.prevent="postRegister"

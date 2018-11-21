@@ -1,34 +1,19 @@
 <template>
   <div 
     id="home"
-    class="relative flex justify-center"
+    class="relative"
   >
-    <!-- <img -->
-    <!--   class="absolute w&#45;screen z&#45;0 opacity&#45;50" -->
-    <!--   src="../assets/hero&#45;gray.png" -->
-    <!--   alt="emrys" -->
-    <!-- > -->
-    <!-- <img -->
-    <!--   class="absolute pin opacity&#45;50 max&#45;w&#45;full w&#45;auto h&#45;auto" -->
-    <!--   width="8688" -->
-    <!--   height="5792" -->
-    <!--   style="z&#45;index: &#45;1;" -->
-    <!--   src="../assets/hero&#45;gray.png" -->
-    <!--   alt="emrys" -->
-    <!-- > -->
     <img
-      class="absolute pin opacity-50 max-w-full w-auto h-auto"
+      class="opacity-25 w-full"
       width="8688"
       height="5792"
       src="../assets/hero-gray.png"
       alt="emrys"
     >
     <div
-      class="max-w-lg"
+      class="w-full absolute pin flex text-center justify-center items-center"
     >
-      <div
-        class="text-center mt-10 md:mt-24"
-      >
+      <div>
         <div
           class="text-4xl md:text-5xl mb-3"
         >
@@ -45,19 +30,19 @@
           >
             <button 
               class="btn btn-secondary"
-              style="min-width: 100px;"
+              style="min-width: 120px;"
               type="button"
             >
               Use
             </button>
           </router-link>
           <router-link
-            class="ml-5"
+            class="ml-6"
             :to="{name: 'supplier'}"
           >
             <button 
               class="btn btn-secondary"
-              style="min-width: 100px;"
+              style="min-width: 120px;"
               type="button"
             >
               Supply

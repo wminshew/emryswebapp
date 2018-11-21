@@ -1,20 +1,16 @@
 <template>
   <div
     id="app"
-    class="flex flex-col h-screen"
     style="height: 100vh;"
   >
     <nav-bar
-      style="flex-shrink: 0;"
       :bearer-token.sync="bearerToken"
     />
     <router-view
-      style="flex: 1 0 auto;"
+      class="bg-white"
       :bearer-token.sync="bearerToken"
     />
-    <Footer
-      style="flex-shrink: 0;"
-    />
+    <Footer />
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div 
     id="nav" 
-    class="flex flex-wrap justify-center border-b border-grey-light shadow-1"
+    class="flex flex-wrap justify-center border-b border-grey-light shadow-1 bg-white"
   >
     <div
       class="max-w-lg flex flex-no-shrink flex-grow flex-no-wrap mx-2 my-2"

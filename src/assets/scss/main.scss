@@ -40,7 +40,7 @@ $base-black: #2C2C31;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: $base-black;
-  // @apply bg-grey-lightest;
+  @apply bg-grey-lightest;
   // color: config('colors.grey-darkest');
 }
 
@@ -151,7 +151,7 @@ $base-black: #2C2C31;
 }
 
 #footer {
-  @apply w-full items-start justify-center bg-grey-lightest mt-12 pt-8 pb-16 flex flex-wrap;
+  @apply w-full items-start justify-center bg-grey-lightest pt-8 flex flex-wrap;
 
   & h2 {
     padding: 0 0 0.5rem 0;
