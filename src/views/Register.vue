@@ -9,6 +9,7 @@
     <form
       id="register-form"
       class="w-full max-w-xs mx-auto py-8"
+      style="min-height: 70vh;"
       action="registerURL"
       method="post"
       @submit.prevent="postRegister"

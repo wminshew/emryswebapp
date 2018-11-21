@@ -9,6 +9,7 @@
     <form 
       id="login-form"
       class="w-full max-w-xs mx-auto py-8"
+      style="min-height: 70vh;"
       action="loginURL"
       method="post"
       @submit.prevent="postLogin"

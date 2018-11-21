@@ -15,12 +15,12 @@
     >
       <div>
         <div
-          class="text-4xl md:text-5xl mb-3"
+          class="text-4xl md:text-5xl mb-4"
         >
           Peer to Peer GPU Compute
         </div>
         <div
-          class="text-lg md:text-xl mb-5"
+          class="text-lg md:text-xl mb-6"
         >
           Fast, cheap, efficient.
         </div>
