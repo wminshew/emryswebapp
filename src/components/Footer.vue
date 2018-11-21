@@ -3,12 +3,12 @@
     id="footer"
   >
     <div
-      class="max-w-lg flex flex-wrap px-4 md:px-0 md:flex-no-shrink flex-grow items-start justify-center"
+      class="max-w-lg flex flex-wrap px-4 leading-normal md:px-0 md:flex-no-shrink flex-grow items-start justify-center"
     >
       <div
         class="w-full text-center py-4 md:text-left md:w-1/4"
       >
-        <h3>Learn more</h3>
+        <h2>Learn more</h2>
         <ul>
           <li>
             <router-link
@@ -26,9 +26,9 @@
           </li>
           <li>
             <router-link
-              :to="{ name: 'miner' }"
+              :to="{ name: 'supplier' }"
             >
-              Miners
+              Suppliers
             </router-link>
           </li>
           <li>
@@ -36,6 +36,13 @@
               :to="{ name: 'docs' }"
             >
               Documentation
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              :to="{ name: 'terms-of-service' }"
+            >
+              Terms of Service
             </router-link>
           </li>
           <li>
@@ -50,7 +57,7 @@
       <div
         class="w-full text-center py-4 md:text-left md:w-1/4"
       >
-        <h3>Contact</h3>
+        <h2>Contact</h2>
         <ul>
           <li>
             <a href="mailto:support@emrys.io">
@@ -72,7 +79,7 @@
       <div
         class="w-full text-center py-4 md:text-left md:w-1/2"
       >
-        <h3>Mission</h3>
+        <h2>Mission</h2>
         <p>Drive humanity forward by making massively parallel compute as cheap & accessible as imaginable.</p>
       </div>
     </div>

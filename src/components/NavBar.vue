@@ -64,9 +64,9 @@
           <router-link
             class="navbar-link"
             active-class="navbar-link-current"
-            :to="{name: 'miner'}"
+            :to="{name: 'supplier'}"
           >
-            Miners
+            Suppliers
           </router-link>
           <router-link
             v-show="!loggedIn"
@@ -140,9 +140,9 @@
           <router-link
             class="navbar-dropdown-text"
             active-class="navbar-dropdown-current"
-            :to="{name: 'miner'}"
+            :to="{name: 'supplier'}"
           >
-            Miners
+            Suppliers
           </router-link>
         </div>
         <div

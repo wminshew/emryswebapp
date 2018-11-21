@@ -14,7 +14,10 @@ export default Vue.extend({
   props: {
     bearerToken: {
       type: String,
-      required: true
+      required: true,
+      validator: (value: string) => {
+        return value !== "";
+      }
     }
   }
 });

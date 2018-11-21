@@ -20,6 +20,10 @@
  */
 @tailwind components;
 
+html {
+  overflow-y: scroll;
+}
+
 @font-face {
   font-family: "GidoleRegular";
   src: url("~@/assets/fonts/Gidole-Regular.ttf") format("truetype");
@@ -30,11 +34,13 @@
 $base-black: #2C2C31;
 
 #app {
-  font-family: "GidoleRegular", sans-serif;
+  font-family: "oxygen", sans-serif;
+  // font-family: "GidoleRegular", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: $base-black
+  color: $base-black;
+  // @apply bg-grey-lightest;
   // color: config('colors.grey-darkest');
 }
 
@@ -83,13 +89,22 @@ $base-black: #2C2C31;
   }
   &-primary {
     @apply bg-primary;
+    &:hover {
+      @apply bg-primary-light;
+    }
+    &:focus {
+      @apply outline-none;
+    }
+  }
+  &-secondary {
+    @apply text-primary bg-transparent border border-primary;
 
-  &:hover {
-    @apply bg-primary-light;
-  }
-  &:focus {
-    @apply outline-none;
-  }
+    &:hover {
+      @apply text-primary-light border-primary-light;
+    }
+    &:focus {
+      @apply outline-none;
+    }
   }
 }
 
@@ -138,15 +153,16 @@ $base-black: #2C2C31;
 #footer {
   @apply w-full items-start justify-center bg-grey-lightest mt-12 pt-8 pb-16 flex flex-wrap;
 
-  & h3 {
+  & h2 {
     padding: 0 0 0.5rem 0;
+    @apply font-normal;
   }
   & ul {
     list-style-type: none;
     padding: 0 0 0 0;
     // padding: 1rem 0 0 0;
     & li {
-      padding: 0.15rem 0 0 0;
+      padding: 0.25rem 0 0 0;
       & a {
         color: $base-black;
         text-decoration: none;
