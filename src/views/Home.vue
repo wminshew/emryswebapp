@@ -4,11 +4,12 @@
     class="relative max-h-screen m-auto overflow-hidden"
   >
     <img
-      class="opacity-100 w-full"
+      class="w-full"
       srcset="../assets/hero-gray-375pt.png 375w,
               ../assets/hero-gray-1200pt.png 1200w"
-      sizes="(max-width: 576px) 375px,
+      sizes="(max-width: 768px) 375px,
               1200px"
+      src="../assets/hero-gray-1200pt.png"
       alt="emrys"
     >
     <div

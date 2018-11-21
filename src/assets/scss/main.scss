@@ -45,6 +45,15 @@ $base-black: #2C2C31;
 }
 #home {
   @apply bg-grey-lightest;
+
+  & > img {
+      object-fit: cover;
+      min-height: 80vh;
+
+      @media only screen and (min-width: config('screens.sm')) {
+        min-height: 70vh;
+      }
+  }
 }
 
 .navbar-svg {
