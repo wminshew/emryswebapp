@@ -43,6 +43,9 @@ $base-black: #2C2C31;
   @apply bg-grey-lightest;
   // color: config('colors.grey-darkest');
 }
+#home {
+  @apply bg-grey-lightest;
+}
 
 .navbar-svg {
   @apply h-8 w-8 fill-current;

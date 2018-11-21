@@ -4,14 +4,15 @@
     class="relative"
   >
     <img
-      class="opacity-25 w-full"
+      class="opacity-100 w-full"
       width="8688"
       height="5792"
       src="../assets/hero-gray.png"
       alt="emrys"
     >
     <div
-      class="w-full absolute pin flex text-center justify-center items-center"
+      class="w-full absolute pin flex text-white text-center justify-center items-center"
+      style="background: rgba(0, 0, 0, 0.7);"
     >
       <div>
         <div
@@ -29,7 +30,7 @@
             :to="{name: 'user'}"
           >
             <button 
-              class="btn btn-secondary"
+              class="btn btn-secondary border-2"
               style="min-width: 120px;"
               type="button"
             >
@@ -41,7 +42,7 @@
             :to="{name: 'supplier'}"
           >
             <button 
-              class="btn btn-secondary"
+              class="btn btn-secondary border-2"
               style="min-width: 120px;"
               type="button"
             >
