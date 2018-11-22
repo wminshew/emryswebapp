@@ -7,7 +7,15 @@
       class="max-w-lg"
       style="min-height: 70vh;"
     >
-      <h1>Supplier page</h1>
+      <h2
+        style="margin-top:0;"
+      >
+        Supplier page
+      </h2>
+      <p>
+        <!-- the worlds' GPUs, one command away -->
+        WIP
+      </p>
       <div
         class="flex justify-center py-4"
       >

@@ -52,15 +52,20 @@
             >
               <g data-name="Layer 2">
                 <g data-name="arrow-upward">
-                  <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"/>
-                  <path d="M5.23 10.64a1 1 0 0 0 1.41.13L11 7.14V19a1 1 0 0 0 2 0V7.14l4.36 3.63a1 1 0 1 0 1.28-1.54l-6-5-.15-.09-.13-.07a1 1 0 0 0-.72 0l-.13.07-.15.09-6 5a1 1 0 0 0-.13 1.41z"/>
+                  <rect 
+                    width="24" 
+                    height="24" 
+                    transform="rotate(180 12 12)" 
+                    opacity="0"
+                  />
+                  <path d="M5.23 10.64a1 1 0 0 0 1.41.13L11 7.14V19a1 1 0 0 0 2 0V7.14l4.36 3.63a1 1 0 1 0 1.28-1.54l-6-5-.15-.09-.13-.07a1 1 0 0 0-.72 0l-.13.07-.15.09-6 5a1 1 0 0 0-.13 1.41z" />
                 </g>
               </g>
             </svg>
           </a>
         </h2>
-        <p v-html="faq.answer">
-        </p>
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <p v-html="faq.answer" />
         <br>
       </div>
     </div>
@@ -79,6 +84,11 @@ interface FaqObject {
 const faqs: FaqObject[] = [
   {
     id: 0,
+    question: "Is there documentation?",
+    answer: `<a target="_blank" href="https://docs.emrys.io/">Yes</a>.`
+  },
+  {
+    id: 0,
     question: "How is pricing determined?",
     answer: `Each job is second-price auctioned to idle suppliers meeting the user-defined hardware requirements. YMMV, but as a rule of 
         thumb we expect a gtx1080Ti to be available for somewhere between $0.1 and $0.5 / hr (to be refined with more data).`
@@ -87,6 +97,12 @@ const faqs: FaqObject[] = [
     id: 0,
     question: "Which GPUs are available?",
     answer: `For now, we only allow relatively new nvidia GPUs on our platform (nothing below gtx9XX). We will refine our cutoff when more data is available.`
+  },
+  {
+    id: 0,
+    question: "Can I launch jupyter notebooks?",
+    answer: `Today, we only support job-based python script execution. But this feature is very high on our priority list (1Q19, 
+        possibly earlier).`
   },
   {
     id: 0,

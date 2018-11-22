@@ -22,7 +22,7 @@
         Why would I use emrys?
       </h2>
       <p>
-        As a user, you either use cloud GPUs today and are looking to (significantly) cut costs, or are looking to train many deep learning models in parallel without having to worry about the infrastructure overhead.
+        As a user, you either rent cloud GPUs today and are looking to (significantly) cut costs, or are looking to train many deep learning models in parallel without having to worry about the infrastructure overhead.
       </p>
       <p>
         As a supplier, you either have idle GPUs or are busy cryptomining but looking to earn (significantly) more money.
