@@ -1,6 +1,7 @@
 <template>
   <div 
     id="privacy-policy"
+    class="flex text-left justify-center leading-tight py-8 mx-auto"
   >
     <div
       class="max-w-lg"

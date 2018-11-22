@@ -22,26 +22,66 @@
 
 html {
   overflow-y: scroll;
-}
-
-@font-face {
-  font-family: "GidoleRegular";
-  src: url("~@/assets/fonts/Gidole-Regular.ttf") format("truetype");
   font-weight: 400;
-  font-style: normal;
+  letter-spacing: 0.33px;
+  line-height: 1.7;
+  
+  & p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  & a {
+    @apply text-primary;
+    text-decoration: none;
+  }
 }
 
 $base-black: #2C2C31;
 
 #app {
-  font-family: "oxygen", sans-serif;
-  // font-family: "GidoleRegular", sans-serif;
+  font-family: 'Oxygen', sans-serif;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: $base-black;
   @apply bg-grey-lightest;
   // color: config('colors.grey-darkest');
+
+  & h1 {
+    font-size: 2em;
+    font-weight: 400;
+    line-height: 1em;
+    letter-spacing: 0.01em;
+    margin-bottom: 0.67em;
+  }
+
+  & h2 {
+    font-size: 1.5em;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+  }
+
+  & h3 {
+    font-size: 1.25em;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+  }
+
+  & h4 {
+    font-size: 1.15em;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+  }
 }
 #home {
   @apply bg-grey-lightest;
@@ -135,8 +175,6 @@ $base-black: #2C2C31;
 }
 
 #terms-of-service {
-  @apply flex text-left justify-center leading-tight my-8 mx-8;
-
   & h2 {
     @apply my-4
   }
@@ -146,8 +184,6 @@ $base-black: #2C2C31;
 }
 
 #privacy-policy {
-  @apply flex text-left justify-center leading-tight my-8 mx-8;
-
   & h2 {
     @apply my-4
   }
@@ -163,8 +199,6 @@ $base-black: #2C2C31;
 }
 
 #footer {
-  @apply w-full items-start justify-center bg-grey-lightest pt-8 flex flex-wrap;
-
   & h2 {
     padding: 0 0 0.5rem 0;
     @apply font-normal;

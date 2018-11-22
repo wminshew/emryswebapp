@@ -25,7 +25,8 @@
         <div
           class="text-lg md:text-xl mb-6"
         >
-          Fast, cheap, efficient.
+          <!-- Fast, cheap, efficient. // TODO: ask owen? -->
+          Fast, efficient, effective.
         </div>
         <div>
           <router-link
