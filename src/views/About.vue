@@ -1,7 +1,7 @@
 <template>
   <div 
     id="about"
-    class="flex text-left justify-center py-8 mx-auto"
+    class="flex text-left justify-center px-4 py-8 mx-auto"
   >
     <div
       class="max-w-lg"
@@ -39,40 +39,18 @@
         >documentation</a>!
       </p>
 
-      <h2>
-        What is your mission?
-      </h2>
-      <p>
-        Our mission is to drive humanity forward by making massively parallel compute as cheap & accessible as imaginable.
-      </p>
-
-      <h2>
-        What is your vision?
-      </h2>
-      <p>
-        As compute continues to commodify, our vision is to become a central clearinghouse through which companies & individuals
-        can access compute primatives from a variety of providers without worrying about lock-in.
-      </p>
-
-      <h2>
-        How can I contact emrys?
-      </h2>
-      <p>
-        There are several ways to reach out, all linked in the footer.
-      </p>
-
       <div
         class="flex justify-center py-8"
       >
         <router-link
-          :to="{name: 'docs'}"
+          :to="{name: 'faq'}"
         >
           <button 
             class="btn btn-secondary border-2"
             style="min-width: 160px;"
             type="button"
           >
-            Documentation
+            Learn more
           </button>
         </router-link>
         <router-link

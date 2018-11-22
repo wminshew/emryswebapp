@@ -20,6 +20,13 @@
           </li>
           <li>
             <router-link
+              :to="{ name: 'faq' }"
+            >
+              FAQ
+            </router-link>
+          </li>
+          <li>
+            <router-link
               :to="{ name: 'user' }"
             >
               Users

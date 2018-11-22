@@ -2,6 +2,7 @@
   <div 
     id="home"
     class="relative max-h-screen m-auto overflow-hidden"
+    style="max-height:95vh;"
   >
     <img
       class="w-full"

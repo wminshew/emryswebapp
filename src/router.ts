@@ -109,6 +109,14 @@ export default new Router({
       //   import(/* webpackChunkName: "terms-of-service" */ "./views/TermsOfService.vue")
     },
     {
+      path: "/frequently-asked-questions",
+      name: "faq",
+      // route level code-splitting
+      // this generates a separate chunk (faq.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "faq" */ "./views/FAQ.vue")
+    },
+    {
       path: "/terms-of-service",
       name: "terms-of-service",
       // route level code-splitting
