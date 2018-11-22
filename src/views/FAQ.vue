@@ -89,14 +89,22 @@ const faqs: FaqObject[] = [
   },
   {
     id: 0,
+    question: "Which GPUs are available?",
+    answer: `For now, we only allow relatively new nvidia GPUs on our platform (nothing below gtx9XX). We will refine our cutoff when more data is available.`
+  },
+  {
+    id: 0,
     question: "How is pricing determined?",
     answer: `Each job is second-price auctioned to idle suppliers meeting the user-defined hardware requirements. YMMV, but as a rule of 
         thumb we expect a gtx1080Ti to be available for somewhere between $0.1 and $0.5 / hr (to be refined with more data).`
   },
   {
     id: 0,
-    question: "Which GPUs are available?",
-    answer: `For now, we only allow relatively new nvidia GPUs on our platform (nothing below gtx9XX). We will refine our cutoff when more data is available.`
+    question: "What fees does emrys charge?",
+    answer: `Today, <strong>none</strong>. Obviously we can't run a business like that forever, but we're dedicated to
+      to keeping market friction minimized, and we'd like to keep longer jobs competitive. We're toying around with a 
+      sliding model beginning at 20% and scaling down to 5% as the job lengthens, but will keep participants informed 
+      if we make any changes. We're also considering a purely fixed-cost access model, a la CostCo.`
   },
   {
     id: 0,
@@ -114,6 +122,11 @@ const faqs: FaqObject[] = [
     question: "Will I get paid for idling on the network?",
     answer: `No, suppliers are only paid for jobs completed. However, the client has the ability to run another command while idle on the network. 
         Many of our early suppliers used this to mine cryptocurrencies inbetween jobs.`
+  },
+  {
+    id: 0,
+    question: "Can I pay / get paid in crypto?",
+    answer: `Not today, but we hope to support more currencies in the future.`
   },
   {
     id: 0,
@@ -144,7 +157,7 @@ const faqs: FaqObject[] = [
     id: 0,
     question: "What is your vision?",
     answer: `As compute continues to commodify, our vision is to become a central clearinghouse through which companies & individuals
-        can access compute primatives from a variety of providers without worrying about lock-in.`
+        can access compute primitives from a variety of providers without worrying about lock-in.`
   },
   {
     id: 0,
