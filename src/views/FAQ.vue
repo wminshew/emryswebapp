@@ -90,27 +90,33 @@ const faqs: FaqObject[] = [
   {
     id: 0,
     question: "Which GPUs are available?",
-    answer: `For now, we only allow relatively new nvidia GPUs on our platform (nothing below gtx9XX). We will refine our cutoff when more data is available.`
+    answer: `For now, we only allow relatively new nvidia GPUs on our 
+    platform (nothing below gtx9XX). We will refine our cutoff when more 
+    data is available.`
   },
   {
     id: 0,
     question: "How is pricing determined?",
-    answer: `Each job is second-price auctioned to idle suppliers meeting the user-defined hardware requirements. YMMV, but as a rule of 
-        thumb we expect a gtx1080Ti to be available for somewhere between $0.1 and $0.5 / hr (to be refined with more data).`
+    answer: `Each job is second-price auctioned to idle suppliers meeting 
+    the user-defined hardware requirements. YMMV, but as a rule of thumb 
+    we expect a gtx1080Ti to be available for somewhere between $0.1 and 
+    $0.5 / hr (to be refined with more data).`
   },
   {
     id: 0,
     question: "What fees does emrys charge?",
-    answer: `Today, <strong>none</strong>. Obviously we can't run a business like that forever, but we're dedicated to
-      to keeping market friction minimized, and we'd like to keep longer jobs competitive. We're toying around with a 
-      sliding model beginning at 20% and scaling down to 5% as the job lengthens, but will keep participants informed 
-      if we make any changes. We're also considering a purely fixed-cost access model, a la CostCo.`
+    answer: `Today, <strong>none</strong>. Obviously we can't run a business 
+    like that forever, but we're dedicated to keeping market friction minimized,
+    and we'd like to keep longer jobs competitive. We're toying around with a 
+    sliding model beginning at 20% and scaling down to 5% as the job lengthens, 
+    but will keep participants informed if we make any changes. We're also 
+    considering a purely fixed-cost access model, a la CostCo.`
   },
   {
     id: 0,
     question: "Can I launch jupyter notebooks?",
-    answer: `Today, we only support job-based python script execution. But this feature is very high on our priority list (1Q19, 
-        possibly earlier).`
+    answer: `Today, we only support job-based python script execution. But 
+    this feature is very high on our priority list (1Q19, possibly earlier).`
   },
   {
     id: 0,
@@ -120,8 +126,9 @@ const faqs: FaqObject[] = [
   {
     id: 0,
     question: "Will I get paid for idling on the network?",
-    answer: `No, suppliers are only paid for jobs completed. However, the client has the ability to run another command while idle on the network. 
-        Many of our early suppliers used this to mine cryptocurrencies inbetween jobs.`
+    answer: `No, suppliers are only paid for jobs completed. However, the 
+    client has the ability to run another command while idle on the network. 
+    Many of our early suppliers used this to mine cryptocurrencies inbetween jobs.`
   },
   {
     id: 0,
@@ -131,38 +138,52 @@ const faqs: FaqObject[] = [
   {
     id: 0,
     question: "What happens if I win a job but fail to complete it?",
-    answer: `Suppliers are stiffly penalized for failing jobs. Whether this happens accidentally via internet failure or intentionally via 
-        manually canceling or hardware fraud (which we monitor closely) does not matter.`
+    answer: `Suppliers are stiffly penalized for failing jobs. Whether this 
+    happens accidentally via internet failure or intentionally via manually 
+    canceling or hardware fraud (which we monitor closely) does not matter.`
   },
   {
     id: 0,
     question: "Will my machine be secure?",
-    answer: `We believe so. Security can never be perfect, but jobs are executed in tightly locked down containers with all kernel capabilities
-        dropped and the no-new-privileges flag enabled. Additional security measures are recommnded in our 
-        <a target="_blank" href="https://docs.emrys.io/docs/installation/#best-practices">supplier best practices</a>. In the future, we intend 
-        to open source our client to further enhance the security.`
+    answer: `We believe so. Security can never be perfect, but jobs are executed 
+    in tightly locked down containers as unprivileged users with all kernel 
+    capabilities dropped and the no-new-privileges flag enabled. Additional 
+    security measures are recommnded in our 
+    <a
+      target="_blank"
+      href="https://docs.emrys.io/docs/installation/#best-practices"
+    >
+      supplier best practices
+    </a>. In the future, we intend to open source our client 
+    to further enhance the security.`
   },
   {
     id: 0,
     question: "Will my data set and model be secure?",
-    answer: `The short answer to this is no. If you're training with proprietary data, we cannot recommend our platform for you, as
-        any supplier could theoretically copy your data set or output weights. We do, however, have plans to tackle this in the future.`
+    answer: `The short answer to this is no. If you're training with 
+    proprietary data, we cannot recommend our platform for you, as any 
+    supplier could theoretically copy your data set or output weights. 
+    We do, however, have plans to tackle this in the future.`
   },
   {
     id: 0,
     question: "What is your mission?",
-    answer: `Our mission is to drive humanity forward by making massively parallel compute as cheap & accessible as imaginable.`
+    answer: `Our mission is to drive humanity forward by making massively 
+    parallel compute as cheap & accessible as imaginable.`
   },
   {
     id: 0,
     question: "What is your vision?",
-    answer: `As compute continues to commodify, our vision is to become a central clearinghouse through which companies & individuals
-        can access compute primitives from a variety of providers without worrying about lock-in.`
+    answer: `As compute continues to commodify, our vision is to become a 
+    central clearinghouse through which companies & individuals can access 
+    compute primitives from a variety of providers without worrying about 
+    lock-in.`
   },
   {
     id: 0,
     question: "How can I contact emrys?",
-    answer: `There are several ways to reach out, all linked in the <a href='#footer'>footer</a>.`
+    answer: `There are several ways to reach out, all linked in the 
+    <a href='#footer'>footer</a>.`
   }
 ];
 let n = 0;
