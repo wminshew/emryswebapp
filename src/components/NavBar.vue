@@ -57,17 +57,24 @@
           <router-link
             class="navbar-link"
             active-class="navbar-link-current"
-            :to="{name: 'user'}"
+            :to="{name: 'faq'}"
           >
-            Users
+            FAQ
           </router-link>
-          <router-link
-            class="navbar-link"
-            active-class="navbar-link-current"
-            :to="{name: 'supplier'}"
-          >
-            Suppliers
-          </router-link>
+          <!-- <router&#45;link -->
+          <!--   class="navbar&#45;link" -->
+          <!--   active&#45;class="navbar&#45;link&#45;current" -->
+          <!--   :to="{name: 'user'}" -->
+          <!-- > -->
+          <!--   Users -->
+          <!-- </router&#45;link> -->
+          <!-- <router&#45;link -->
+          <!--   class="navbar&#45;link" -->
+          <!--   active&#45;class="navbar&#45;link&#45;current" -->
+          <!--   :to="{name: 'supplier'}" -->
+          <!-- > -->
+          <!--   Suppliers -->
+          <!-- </router&#45;link> -->
           <router-link
             v-show="!loggedIn"
             class="navbar-link"
@@ -129,22 +136,33 @@
           <router-link
             class="navbar-dropdown-text"
             active-class="navbar-dropdown-current"
-            :to="{name: 'user'}"
+            :to="{name: 'faq'}"
           >
-            Users
+            FAQ
           </router-link>
         </div>
-        <div
-          class="navbar-dropdown"
-        >
-          <router-link
-            class="navbar-dropdown-text"
-            active-class="navbar-dropdown-current"
-            :to="{name: 'supplier'}"
-          >
-            Suppliers
-          </router-link>
-        </div>
+        <!-- <div -->
+        <!--   class="navbar&#45;dropdown" -->
+        <!-- > -->
+        <!--   <router&#45;link -->
+        <!--     class="navbar&#45;dropdown&#45;text" -->
+        <!--     active&#45;class="navbar&#45;dropdown&#45;current" -->
+        <!--     :to="{name: 'user'}" -->
+        <!--   > -->
+        <!--     Users -->
+        <!--   </router&#45;link> -->
+        <!-- </div> -->
+        <!-- <div -->
+        <!--   class="navbar&#45;dropdown" -->
+        <!-- > -->
+        <!--   <router&#45;link -->
+        <!--     class="navbar&#45;dropdown&#45;text" -->
+        <!--     active&#45;class="navbar&#45;dropdown&#45;current" -->
+        <!--     :to="{name: 'supplier'}" -->
+        <!--   > -->
+        <!--     Suppliers -->
+        <!--   </router&#45;link> -->
+        <!-- </div> -->
         <div
           class="navbar-dropdown"
         >
