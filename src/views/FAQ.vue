@@ -184,6 +184,16 @@ const faqs: FaqObject[] = [
     question: "How can I contact emrys?",
     answer: `There are several ways to reach out, all linked in the 
     <a href='#footer'>footer</a>.`
+  },
+  {
+    id: 0,
+    question: "Emrys is a funny name. What's it mean?",
+    answer: `Emrys is
+    <a target='_blank' href='https://en.wikipedia.org/wiki/Merlin'>Merlin</a>'s 
+    first name in Welsh. Following Arthur C. Clarke's famous quote ("Any 
+      sufficiently advanced technology is indistinguishable from magic"), 
+    we believe programming is modern wizardry. But mostly we just like how it 
+    sounds.`
   }
 ];
 let n = 0;
