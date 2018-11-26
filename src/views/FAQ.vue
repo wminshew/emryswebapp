@@ -4,7 +4,7 @@
     class="flex text-left justify-center px-4 py-8 mx-auto"
   >
     <div
-      class="max-w-lg"
+      class="w-full max-w-lg"
     >
       <h1
         class="block md:hidden"
