@@ -21,6 +21,24 @@ router.beforeEach((to, from, next) => {
   }
 });
 
+declare global {
+  // interface Window {
+  //   gtag: any;
+  // }
+  function gtag(
+    command: string,
+    params: string | object,
+    opts: object | null
+  ): void;
+}
+
+const GA_TRACKING_ID = "UA-107715418-2";
+// const w = window;
+router.afterEach((to, from) => {
+  // w.gtag("config", GA_TRACKING_ID, { page_path: to.path });
+  gtag("config", GA_TRACKING_ID, { page_path: to.path });
+});
+
 Vue.filter("capitalize", (value: string) => {
   if (!value) {
     return "";
