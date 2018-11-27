@@ -25,6 +25,7 @@ declare global {
   // interface Window {
   //   gtag: any;
   // }
+  // https://developers.google.com/gtagjs/reference/api
   function gtag(
     command: string,
     params: string | object,
