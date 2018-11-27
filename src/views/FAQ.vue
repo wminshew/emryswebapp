@@ -121,7 +121,7 @@ const faqs: FaqObject[] = [
   {
     id: 0,
     question: "How often will I be charged / paid?",
-    answer: `Users are charged weekly. Suppliers are paid biweekly.`
+    answer: `Weekly.`
   },
   {
     id: 0,
