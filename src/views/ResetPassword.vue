@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div
+    id="password-reset"
+    class="px-4 py-8 mx-auto"
+  >
     <Alert 
       :alert-visible.sync="alertVisible" 
       :alert-type="alertType"
@@ -7,8 +10,8 @@
       {{ alertText | capitalize }}
     </Alert>
     <form
-      id="register-form"
-      class="w-full max-w-xs mx-auto mt-8"
+      id="reset-password-form"
+      class="w-full max-w-xs mx-auto"
       action="resetPasswordURL"
       method="post"
       @submit.prevent="postResetPassword"
@@ -38,11 +41,11 @@
       <div class="text-left md:flex">
         <div class="md:w-1/3" />
         <div class="relative md:w-2/3">
-          <p 
+          <span 
             v-if="errors.has('email')" 
-            class="absolute w-full text-xs text-red py-1"
+            class="absolute w-full text-xs text-red"
           >{{ errors.first('email') }}
-          </p>
+          </span>
         </div>
       </div>
       <div class="md:flex md:items-center mt-6">

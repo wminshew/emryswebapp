@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div
+    id="register"
+    class="py-8 px-4"
+  >
     <Alert 
       :alert-visible.sync="alertVisible" 
       :alert-type="alertType"
@@ -8,7 +11,7 @@
     </Alert>
     <form
       id="register-form"
-      class="w-full max-w-xs mx-auto py-8"
+      class="w-full max-w-xs mx-auto"
       style="min-height: 70vh;"
       action="registerURL"
       method="post"
@@ -39,11 +42,11 @@
       <div class="text-left md:flex">
         <div class="md:w-1/3" />
         <div class="relative md:w-2/3">
-          <p 
+          <span
             v-if="errors.has('email')" 
-            class="absolute w-full text-xs text-red py-1"
+            class="absolute w-full text-xs text-red"
           >{{ errors.first('email') }}
-          </p>
+          </span>
         </div>
       </div>
       <div class="md:flex md:items-center mt-6">
@@ -71,11 +74,11 @@
       <div class="text-left md:flex">
         <div class="md:w-1/3" />
         <div class="relative md:w-2/3">
-          <p 
+          <span
             v-if="errors.has('password')" 
-            class="absolute w-full text-xs text-red py-1"
+            class="absolute w-full text-xs text-red"
           >{{ errors.first('password') }}
-          </p>
+          </span>
         </div>
       </div>
       <div class="align-middle text-left md:flex md:text-center md:items-center mt-6">

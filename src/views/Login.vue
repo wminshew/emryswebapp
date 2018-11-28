@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div
+    id="login"
+    class="px-4 py-8"
+  >
     <Alert 
       :alert-visible.sync="alertVisible" 
       :alert-type="alertType"
@@ -8,7 +11,7 @@
     </Alert>
     <form 
       id="login-form"
-      class="w-full max-w-xs mx-auto py-8"
+      class="w-full max-w-xs mx-auto"
       style="min-height: 70vh;"
       action="loginURL"
       method="post"

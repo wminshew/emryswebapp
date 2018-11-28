@@ -48,6 +48,7 @@
         </div>
         <div class="hidden text-base font-semibold tracking-wide sm:flex sm:items-center lg:flex-grow lg:justify-end">
           <router-link
+            v-show="!loggedIn"
             class="navbar-link"
             active-class="navbar-link-current"
             :to="{ name: 'about' }"
@@ -55,6 +56,7 @@
             About
           </router-link>
           <router-link
+            v-show="!loggedIn"
             class="navbar-link"
             active-class="navbar-link-current"
             :to="{name: 'faq'}"
@@ -62,6 +64,7 @@
             FAQ
           </router-link>
           <!-- <router&#45;link -->
+          <!-- v-show="!loggedIn" -->
           <!--   class="navbar&#45;link" -->
           <!--   active&#45;class="navbar&#45;link&#45;current" -->
           <!--   :to="{name: 'user'}" -->
@@ -69,6 +72,7 @@
           <!--   Users -->
           <!-- </router&#45;link> -->
           <!-- <router&#45;link -->
+          <!-- v-show="!loggedIn" -->
           <!--   class="navbar&#45;link" -->
           <!--   active&#45;class="navbar&#45;link&#45;current" -->
           <!--   :to="{name: 'supplier'}" -->
@@ -99,6 +103,14 @@
             v-show="loggedIn"
             class="navbar-link"
             active-class="navbar-link-current"
+            :to="{name: 'jobs'}"
+          >
+            Jobs
+          </router-link>
+          <router-link
+            v-show="loggedIn"
+            class="navbar-link"
+            active-class="navbar-link-current"
             :to="{name: 'account'}"
           >
             Account
@@ -120,6 +132,7 @@
         class="block w-full text-lg font-semibold tracking-wide overflow-hidden sm:hidden"
       >
         <div
+          v-show="!loggedIn"
           class="navbar-dropdown"
         >
           <router-link
@@ -131,6 +144,7 @@
           </router-link>
         </div>
         <div
+          v-show="!loggedIn"
           class="navbar-dropdown"
         >
           <router-link
@@ -142,6 +156,7 @@
           </router-link>
         </div>
         <!-- <div -->
+        <!-- v-show="!loggedIn" -->
         <!--   class="navbar&#45;dropdown" -->
         <!-- > -->
         <!--   <router&#45;link -->
@@ -153,6 +168,7 @@
         <!--   </router&#45;link> -->
         <!-- </div> -->
         <!-- <div -->
+        <!-- v-show="!loggedIn" -->
         <!--   class="navbar&#45;dropdown" -->
         <!-- > -->
         <!--   <router&#45;link -->
@@ -164,10 +180,10 @@
         <!--   </router&#45;link> -->
         <!-- </div> -->
         <div
+          v-show="!loggedIn"
           class="navbar-dropdown"
         >
           <router-link
-            v-show="!loggedIn"
             class="navbar-dropdown-text"
             active-class="navbar-dropdown-current"
             :to="{name: 'login'}"
@@ -176,10 +192,10 @@
           </router-link>
         </div>
         <div
+          v-show="!loggedIn"
           class="navbar-dropdown"
         >
           <router-link
-            v-show="!loggedIn"
             class="navbar-dropdown-text text-primary"
             active-class="navbar-dropdown-current"
             :to="{name: 'register'}"
@@ -192,7 +208,19 @@
           class="navbar-dropdown"
         >
           <router-link
-            class="navbar-dropdown"
+            class="navbar-dropdown-text"
+            active-class="navbar-dropdown-current"
+            :to="{name: 'jobs'}"
+          >
+            Jobs
+          </router-link>
+        </div>
+        <div
+          v-show="loggedIn"
+          class="navbar-dropdown"
+        >
+          <router-link
+            class="navbar-dropdown-text"
             active-class="navbar-dropdown-current"
             :to="{name: 'account'}"
           >

@@ -1,6 +1,6 @@
 <template>
   <div
-    id="account"
+    id="jobs"
     class="flex text-left justify-center px-4 py-8 mx-auto"
   >
     <div
@@ -16,30 +16,29 @@
       <h2
         style="margin-top:0;"
       >
-        Account balance
+        History
       </h2>
-      <loading-dots
-        class="h-8 w-8"
-        :loading="loading"
-      />
-      <div v-show="!loading">
-        <p v-if="accountBalance >= 0">
-          ${{ accountBalance }} to be paid at week end.
-        </p>
-        <p v-else>
-          ${{ -accountBalance }} to be charged at week end.
+      <div
+        v-if="loading"
+      >
+        <loading-dots
+          class="h-8 w-8"
+          :loading="loading"
+        />
+      </div>
+      <div v-else-if="jobHistory.length > 0">
+        <span
+          v-for="(job, index) in jobHistory"
+          :key="index"
+        >
+          {{ job }}<br>
+        </span>
+      </div>
+      <div v-else>
+        <p>
+          No job history
         </p>
       </div>
-      <h2>
-        <router-link
-          :to="{
-            name: 'confirm-reset-password',
-            query: { token: bearerToken }
-          }"
-        >
-          Change password
-        </router-link>
-      </h2>
     </div>
   </div>
 </template>
@@ -50,10 +49,10 @@ import Alert from "@/components/Alert.vue";
 import LoadingDots from "@/components/LoadingDots.vue";
 import axios from "axios";
 
-const getAccountBalanceURL = "https://api.emrys.io/user/balance";
+const getJobHistoryURL = "https://api.emrys.io/user/job-history";
 
 export default Vue.extend({
-  name: "Account",
+  name: "Jobs",
   components: {
     Alert,
     LoadingDots
@@ -73,23 +72,24 @@ export default Vue.extend({
       alertVisible: false,
       alertType: "success",
       alertText: "",
+      jobHistory: [],
       loading: true
     };
   },
   mounted() {
-    this.getAccountBalance();
+    this.getJobHistory();
   },
   methods: {
-    getAccountBalance() {
+    getJobHistory() {
       axios({
         method: "get",
-        url: getAccountBalanceURL,
+        url: getJobHistoryURL,
         validateStatus: status => {
           return status >= 200 && status < 300; // axios default
         }
       })
         .then(resp => {
-          this.accountBalance = resp.data;
+          this.jobHistory = resp.data;
           this.loading = false;
         })
         .catch(error => {
