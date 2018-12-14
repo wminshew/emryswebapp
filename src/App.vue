@@ -20,10 +20,6 @@ import NavBar from "@/components/NavBar.vue";
 import Footer from "@/components/Footer.vue";
 import axios from "axios";
 
-interface JWT {
-  exp: number;
-}
-
 export default Vue.extend({
   name: "App",
   components: {

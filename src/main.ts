@@ -9,10 +9,19 @@ Vue.use(VeeValidate);
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     const time = Math.floor(Date.now() / 1000);
-    if (localStorage.bearerToken === "" && time < localStorage.tokenExp) {
+    if (localStorage.bearerToken === "") {
       next({
         name: "login",
         query: { redirect: to.fullPath }
+      });
+    } else if (time > localStorage.tokenExp) {
+      next({
+        name: "login",
+        query: {
+          redirect: to.fullPath,
+          alertType: "danger",
+          alertText: "Login expired, please re-enter your credentials."
+        }
       });
     } else {
       next();
@@ -23,9 +32,10 @@ router.beforeEach((to, from, next) => {
 });
 
 declare global {
-  // interface Window {
-  //   gtag: any;
-  // }
+  interface JWT {
+    exp: number;
+  }
+
   // https://developers.google.com/gtagjs/reference/api
   function gtag(
     command: string,
