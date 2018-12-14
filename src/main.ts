@@ -8,7 +8,8 @@ Vue.use(VeeValidate);
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (localStorage.bearerToken === "") {
+    const time = Math.floor(Date.now() / 1000);
+    if (localStorage.bearerToken === "" && time < localStorage.tokenExp) {
       next({
         name: "login",
         query: { redirect: to.fullPath }
