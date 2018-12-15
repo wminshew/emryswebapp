@@ -77,13 +77,13 @@ export default Vue.extend({
       { property: "og:image", content: "./assets/hero-gray-375pt.png" },
       { property: "og:description", content: "p2p GPU compute" },
       // Twitter card
-      { property: "twitter:card", content: "summary_large_image" },
-      { property: "twitter:site", content: "https://www.emrys.io" },
-      { property: "twitter:title", content: "home | emrys" },
-      { property: "twitter:description", content: "p2p GPU compute" },
-      { property: "twitter:creator", content: "@emrysio" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "https://www.emrys.io" },
+      { name: "twitter:title", content: "home | emrys" },
+      { name: "twitter:description", content: "p2p GPU compute" },
+      { name: "twitter:creator", content: "@emrysio" },
       {
-        property: "twitter:image:src",
+        name: "twitter:image:src",
         content: "./assets/hero-gray-375pt.png"
       },
       // Google / Schema.org markup
