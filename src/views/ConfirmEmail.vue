@@ -76,6 +76,9 @@ export default Vue.extend({
           });
         });
     }
+  },
+  metaInfo: {
+    title: "confirm email"
   }
 });
 </script>

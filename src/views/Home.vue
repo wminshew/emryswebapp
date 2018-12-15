@@ -19,7 +19,7 @@
     >
       <div>
         <div
-          class="text-4xl md:text-5xl mb-4"
+          class="mb-4 text-4xl md:text-5xl md:mb-0"
         >
           Peer to Peer GPU Compute
         </div>

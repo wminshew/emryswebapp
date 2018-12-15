@@ -208,6 +208,9 @@ export default Vue.extend({
     return {
       faqs
     };
+  },
+  metaInfo: {
+    title: "faq"
   }
 });
 </script>

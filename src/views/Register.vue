@@ -285,6 +285,9 @@ export default Vue.extend({
           });
       }
     }
+  },
+  metaInfo: {
+    title: "register"
   }
 });
 </script>

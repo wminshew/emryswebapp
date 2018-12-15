@@ -108,6 +108,9 @@ export default Vue.extend({
           this.loading = false;
         });
     }
+  },
+  metaInfo: {
+    title: "account"
   }
 });
 </script>

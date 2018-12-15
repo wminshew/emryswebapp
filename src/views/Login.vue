@@ -182,6 +182,9 @@ export default Vue.extend({
           this.loading = false;
         });
     }
+  },
+  metaInfo: {
+    title: "login"
   }
 });
 </script>

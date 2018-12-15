@@ -104,3 +104,14 @@
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+  name: "ToS",
+  metaInfo: {
+    title: "terms of service"
+  }
+});
+</script>

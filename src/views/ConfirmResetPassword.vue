@@ -165,6 +165,9 @@ export default Vue.extend({
           });
       }
     }
+  },
+  metaInfo: {
+    title: "confirm password reset"
   }
 });
 </script>

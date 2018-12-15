@@ -1,10 +1,12 @@
 import Vue from "vue";
 import App from "./App.vue";
+import Meta from "vue-meta";
 import router from "./router";
 import VeeValidate from "vee-validate";
 
 Vue.config.productionTip = false;
 Vue.use(VeeValidate);
+Vue.use(Meta);
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
