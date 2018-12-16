@@ -7,6 +7,10 @@ import VeeValidate from "vee-validate";
 Vue.config.productionTip = false;
 Vue.use(VeeValidate);
 Vue.use(Meta);
+Vue.prototype.$baseURL =
+  process.env.NODE_ENV === "production"
+    ? "https://www.emrys.io"
+    : "http://localhost:8080";
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {

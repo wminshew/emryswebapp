@@ -19,7 +19,7 @@ import Vue from "vue";
 import NavBar from "@/components/NavBar.vue";
 import Footer from "@/components/Footer.vue";
 import axios from "axios";
-import socialImage from "@/assets/hero-gray-375pt.png";
+import relSocialImage from "@/assets/hero-gray-375pt.png";
 
 export default Vue.extend({
   name: "App",
@@ -55,43 +55,45 @@ export default Vue.extend({
       this.bearerToken = localStorage.bearerToken;
     }
   },
-  metaInfo: {
-    title: "home",
-    titleTemplate: "%s | emrys",
-    links: [{ rel: "canonical", href: "https://www.emrys.io" }],
-    meta: [
-      {
-        httpEquiv: "Content-Type",
-        content: "text/html; charset=utf-8"
-      },
-      {
-        httpEquiv: "X-UA-Compatible",
-        content: "IE=edge"
-      },
-      { name: "viewport", content: "width=device-width, initial-scale=1.0" },
-      { name: "description", content: "p2p GPU compute" },
-      // OpenGraph data
-      { property: "og:title", content: "home | emrys" },
-      { property: "og:site_name", content: "emrys" },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://www.emrys.io" },
-      { property: "og:image", content: socialImage },
-      { property: "og:description", content: "p2p GPU compute" },
-      // Twitter card
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@emrysio" },
-      { name: "twitter:title", content: "emrys" },
-      { name: "twitter:description", content: "p2p GPU compute" },
-      { name: "twitter:creator", content: "@wminshew" },
-      {
-        name: "twitter:image",
-        content: socialImage
-      },
-      // Google / Schema.org markup
-      { itemprop: "name", content: "home | emrys" },
-      { itemprop: "description", content: "p2p GPU compute" },
-      { itemprop: "image", content: socialImage }
-    ]
+  metaInfo() {
+    return {
+      title: "home",
+      titleTemplate: "%s | emrys",
+      links: [{ rel: "canonical", href: "https://www.emrys.io" }],
+      meta: [
+        {
+          httpEquiv: "Content-Type",
+          content: "text/html; charset=utf-8"
+        },
+        {
+          httpEquiv: "X-UA-Compatible",
+          content: "IE=edge"
+        },
+        { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+        { name: "description", content: "p2p GPU compute" },
+        // OpenGraph data
+        { property: "og:title", content: "home | emrys" },
+        { property: "og:site_name", content: "emrys" },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: "https://www.emrys.io" },
+        { property: "og:image", content: this.$baseURL + relSocialImage },
+        { property: "og:description", content: "p2p GPU compute" },
+        // Twitter card
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:site", content: "@emrysio" },
+        { name: "twitter:title", content: "emrys" },
+        { name: "twitter:description", content: "p2p GPU compute" },
+        { name: "twitter:creator", content: "@wminshew" },
+        {
+          name: "twitter:image",
+          content: this.$baseURL + relSocialImage
+        },
+        // Google / Schema.org markup
+        { itemprop: "name", content: "home | emrys" },
+        { itemprop: "description", content: "p2p GPU compute" },
+        { itemprop: "image", content: this.$baseURL + relSocialImage }
+      ]
+    };
   }
 });
 </script>
