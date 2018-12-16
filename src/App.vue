@@ -19,6 +19,7 @@ import Vue from "vue";
 import NavBar from "@/components/NavBar.vue";
 import Footer from "@/components/Footer.vue";
 import axios from "axios";
+import socialImage from "@/assets/hero-gray-375pt.png";
 
 export default Vue.extend({
   name: "App",
@@ -74,7 +75,7 @@ export default Vue.extend({
       { property: "og:site_name", content: "emrys" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.emrys.io" },
-      { property: "og:image", content: "./assets/hero-gray-375pt.png" },
+      { property: "og:image", content: socialImage },
       { property: "og:description", content: "p2p GPU compute" },
       // Twitter card
       { name: "twitter:card", content: "summary_large_image" },
@@ -84,12 +85,12 @@ export default Vue.extend({
       { name: "twitter:creator", content: "@emrysio" },
       {
         name: "twitter:image:src",
-        content: "./assets/hero-gray-375pt.png"
+        content: socialImage
       },
       // Google / Schema.org markup
       { itemprop: "name", content: "home | emrys" },
       { itemprop: "description", content: "p2p GPU compute" },
-      { itemprop: "image", content: "./assets/hero-gray-375pt.png" }
+      { itemprop: "image", content: socialImage }
     ]
   }
 });

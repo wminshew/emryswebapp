@@ -6,11 +6,11 @@
   >
     <img
       class="w-full"
-      srcset="../assets/hero-gray-375pt.png 375w,
-              ../assets/hero-gray-1200pt.png 1200w"
+      srcset="@/assets/hero-gray-375pt.png 375w,
+              @/assets/hero-gray-1200pt.png 1200w"
       sizes="(max-width: 768px) 375px,
               1200px"
-      src="../assets/hero-gray-1200pt.png"
+      src="@/assets/hero-gray-1200pt.png"
       alt="emrys"
     >
     <div
