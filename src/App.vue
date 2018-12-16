@@ -79,12 +79,12 @@ export default Vue.extend({
       { property: "og:description", content: "p2p GPU compute" },
       // Twitter card
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "https://www.emrys.io" },
-      { name: "twitter:title", content: "home | emrys" },
+      { name: "twitter:site", content: "@emrysio" },
+      { name: "twitter:title", content: "emrys" },
       { name: "twitter:description", content: "p2p GPU compute" },
-      { name: "twitter:creator", content: "@emrysio" },
+      { name: "twitter:creator", content: "@wminshew" },
       {
-        name: "twitter:image:src",
+        name: "twitter:image",
         content: socialImage
       },
       // Google / Schema.org markup
