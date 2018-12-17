@@ -62,25 +62,13 @@ export default Vue.extend({
       links: [{ rel: "canonical", href: "https://www.emrys.io" }],
       meta: [
         // OpenGraph data
-        { property: "og:title", content: "home | emrys" },
-        { property: "og:site_name", content: "emrys" },
-        { property: "og:type", content: "website" },
-        { property: "og:url", content: "https://www.emrys.io" },
         { property: "og:image", content: this.$baseURL + relSocialImage },
-        { property: "og:description", content: "p2p GPU compute" },
         // Twitter card
-        { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:site", content: "@emrysio" },
-        { name: "twitter:title", content: "emrys" },
-        { name: "twitter:description", content: "p2p GPU compute" },
-        { name: "twitter:creator", content: "@wminshew" },
         {
           name: "twitter:image",
           content: this.$baseURL + relSocialImage
         },
         // Google / Schema.org markup
-        { itemprop: "name", content: "home | emrys" },
-        { itemprop: "description", content: "p2p GPU compute" },
         { itemprop: "image", content: this.$baseURL + relSocialImage }
       ]
     };
