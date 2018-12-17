@@ -61,16 +61,6 @@ export default Vue.extend({
       titleTemplate: "%s | emrys",
       links: [{ rel: "canonical", href: "https://www.emrys.io" }],
       meta: [
-        {
-          httpEquiv: "Content-Type",
-          content: "text/html; charset=utf-8"
-        },
-        {
-          httpEquiv: "X-UA-Compatible",
-          content: "IE=edge"
-        },
-        { name: "viewport", content: "width=device-width, initial-scale=1.0" },
-        { name: "description", content: "p2p GPU compute" },
         // OpenGraph data
         { property: "og:title", content: "home | emrys" },
         { property: "og:site_name", content: "emrys" },
