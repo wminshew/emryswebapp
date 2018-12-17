@@ -19,7 +19,6 @@ import Vue from "vue";
 import NavBar from "@/components/NavBar.vue";
 import Footer from "@/components/Footer.vue";
 import axios from "axios";
-import relSocialImage from "@/assets/hero-gray-375pt.png";
 
 export default Vue.extend({
   name: "App",
@@ -59,18 +58,7 @@ export default Vue.extend({
     return {
       title: "home",
       titleTemplate: "%s | emrys",
-      links: [{ rel: "canonical", href: "https://www.emrys.io" }],
-      meta: [
-        // OpenGraph data
-        { property: "og:image", content: this.$baseURL + relSocialImage },
-        // Twitter card
-        {
-          name: "twitter:image",
-          content: this.$baseURL + relSocialImage
-        },
-        // Google / Schema.org markup
-        { itemprop: "image", content: this.$baseURL + relSocialImage }
-      ]
+      links: [{ rel: "canonical", href: "https://www.emrys.io" }]
     };
   }
 });
