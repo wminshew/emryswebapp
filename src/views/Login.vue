@@ -158,7 +158,8 @@ export default Vue.extend({
           this.$emit("update:bearerToken", token);
           // need to set immediately so router doesn't block update
           localStorage.bearerToken = token;
-          const base64Url = this.bearerToken.split(".")[1];
+
+          const base64Url = token.split(".")[1];
           const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
           const parsedClaims: JWT = JSON.parse(window.atob(base64));
           const newExpiration = parsedClaims.exp;
