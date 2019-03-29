@@ -107,9 +107,11 @@ export default Vue.extend({
   },
   data() {
     return {
-      alertVisible: false,
-      alertType: "success",
-      alertText: "",
+      alertType: this.$route.query.alertType || "",
+      alertText: this.$route.query.alertText || "",
+      alertVisible:
+        Object.keys(this.$route.query).length > 0 &&
+        !(this.$route.query.alertText === ""),
       connectWithStripeURL,
       loading: true,
       registeredWithStripe: false,

@@ -42,7 +42,10 @@ export default Vue.extend({
         "Stripe state doesn't match, possible CSRF attack please re-submit to be safe.";
       this.$router.push({
         name: "stripe",
-        query: { alertType: this.alertType, alertText: this.alertText }
+        query: {
+          alertType: this.alertType,
+          alertText: this.alertText
+        }
       });
     } else {
       this.postConfirmStripe();
@@ -66,7 +69,10 @@ export default Vue.extend({
           this.alertText = "Stripe account confirmed!";
           this.$router.push({
             name: "stripe",
-            query: { alertType: this.alertType, alertText: this.alertText }
+            query: {
+              alertType: this.alertType,
+              alertText: this.alertText
+            }
           });
         })
         .catch(error => {
@@ -83,7 +89,10 @@ export default Vue.extend({
             ". Please try again or reach out to support@emrys.io if this continues";
           this.$router.push({
             name: "stripe",
-            query: { alertType: this.alertType, alertText: this.alertText }
+            query: {
+              alertType: this.alertType,
+              alertText: this.alertText
+            }
           });
         });
     }
