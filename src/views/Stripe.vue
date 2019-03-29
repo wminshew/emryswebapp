@@ -48,7 +48,8 @@
             :href="connectWithStripeURL"
           >
             <img 
-              src="@/assets/stripe/connect-button/blue-on-light.png" 
+              class="h-8"
+              src="@/assets/stripe/connect-button/blue-on-light@3x.png" 
               alt="connect with stripe"
             >
           </a>
