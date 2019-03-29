@@ -111,6 +111,14 @@
             v-show="loggedIn"
             class="navbar-link"
             active-class="navbar-link-current"
+            :to="{name: 'stripe'}"
+          >
+            Stripe
+          </router-link>
+          <router-link
+            v-show="loggedIn"
+            class="navbar-link"
+            active-class="navbar-link-current"
             :to="{name: 'account'}"
           >
             Account
@@ -213,6 +221,18 @@
             :to="{name: 'jobs'}"
           >
             Jobs
+          </router-link>
+        </div>
+        <div
+          v-show="loggedIn"
+          class="navbar-dropdown"
+        >
+          <router-link
+            class="navbar-dropdown-text"
+            active-class="navbar-dropdown-current"
+            :to="{name: 'stripe'}"
+          >
+            Stripe
           </router-link>
         </div>
         <div

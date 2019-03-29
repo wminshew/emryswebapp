@@ -1,7 +1,7 @@
 <template>
   <div 
     v-if="alertVisible"
-    class="w-full max-w-xs text-sm mx-auto border px-5 py-3 rounded relative"
+    class="w-full max-w-xs text-sm mx-auto border px-5 py-3 mb-3 rounded relative"
     :class="['alert-' + alertType]"
     role="alert"
   >
