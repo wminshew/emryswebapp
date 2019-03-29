@@ -68,10 +68,7 @@ const getAccountStripeIDURL = "https://api.emrys.io/user/stripe-id";
 const getAccountEmailURL = "https://api.emrys.io/user/email";
 
 const stripeRedirectURI = "https://www.emrys.io/stripe";
-// real ID
 const stripeClientID = "ca_EmI3qeGAa5WoIvSuiz1wIbgAyP4vcYRw";
-// test ID
-// const stripeClientID = "ca_EmI3koqRmT9S4fy5Y1U9CdJAMB6PsoFu";
 
 let stripeState: string;
 if (localStorage.stripeState == null) {
