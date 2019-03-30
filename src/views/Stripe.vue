@@ -26,7 +26,7 @@
           </h2>
           <div class="flex w-full items-center md:w-auto">
             <button
-              class="btn btn-primary"
+              class="relative btn btn-primary flex items-center justify-center"
               @click="getAccountStripeDashboard()"
             >
               <span :class="{ invisible: loadingDashboard }">
@@ -212,8 +212,7 @@ export default Vue.extend({
         .then(resp => {
           const accountDashboardURL = resp.data;
           this.loadingDashboard = false;
-          window.open(accountDashboardURL);
-          // window.open(accountDashboardURL, "_blank");
+          window.open(accountDashboardURL, "_blank");
         })
         .catch(error => {
           if (error.response) {
