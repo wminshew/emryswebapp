@@ -26,7 +26,7 @@
           </h2>
           <div class="flex w-full items-center md:w-auto">
             <a 
-              href="https://api.emrys.io/stripe/dashboard"
+              href="https://api.emrys.io/user/stripe/dashboard"
               target="_blank"
               class="btn btn-primary"
             >
