@@ -25,17 +25,24 @@
             Stripe Dashboard
           </h2>
           <div class="flex w-full items-center md:w-auto">
-            <a 
-              href="https://api.emrys.io/user/stripe/dashboard"
-              target="_blank"
+            <button
               class="btn btn-primary"
+              @click="getAccountStripeDashboard()"
             >
-              Launch my stripe dashboard
+              <span :class="{ invisible: loadingDashboard }">
+                Launch my stripe dashboard
+                <img 
+                  class="h-6 w-6 py-1 align-middle"
+                  src="@/assets/svg-new-window/new-window.svg"
+                >
+              </span>
               <img 
-                class="h-6 w-6 py-1 align-middle"
-                src="@/assets/svg-new-window/new-window.svg"
+                class="absolute w-full h-2 w-2"
+                :class="{ invisible: !loadingDashboard }"
+                style="top: calc(50% - 0.25rem);"
+                src="@/assets/svg-loaders/three-dots.svg"
               >
-            </a>
+            </button>
           </div>
         </div>
         <div v-else>
@@ -67,6 +74,8 @@ import axios from "axios";
 
 const getAccountStripeIDURL = "https://api.emrys.io/user/stripe-id";
 const getAccountEmailURL = "https://api.emrys.io/user/email";
+const getAccountStripeDashboardURL =
+  "https://api.emrys.io/user/stripe/dashboard";
 
 const stripeRedirectURI = "https://www.emrys.io/stripe";
 const stripeClientID = "ca_EmI3qeGAa5WoIvSuiz1wIbgAyP4vcYRw";
@@ -105,13 +114,14 @@ export default Vue.extend({
   },
   data() {
     return {
-      alertType: this.$route.query.alertType || "",
+      alertType: this.$route.query.alertType || "success",
       alertText: this.$route.query.alertText || "",
       alertVisible:
         Object.keys(this.$route.query).length > 0 &&
         !(this.$route.query.alertText === ""),
       connectWithStripeURL,
       loading: true,
+      loadingDashboard: false,
       registeredWithStripe: false,
       stripeID: ""
     };
@@ -188,6 +198,36 @@ export default Vue.extend({
             ". Please try again or reach out to support@emrys.io if this continues";
           this.alertVisible = true;
           this.loading = false;
+        });
+    },
+    getAccountStripeDashboard() {
+      this.loadingDashboard = true;
+      axios({
+        method: "get",
+        url: getAccountStripeDashboardURL,
+        validateStatus: status => {
+          return status >= 200 && status < 300; // axios default
+        }
+      })
+        .then(resp => {
+          const accountDashboardURL = resp.data;
+          this.loadingDashboard = false;
+          window.open(accountDashboardURL);
+        })
+        .catch(error => {
+          if (error.response) {
+            this.alertText = error.response.data.trim();
+          } else if (error.request) {
+            this.alertText = "Error: no server response received";
+          } else {
+            this.alertText = error.message.trim();
+          }
+          this.alertType = "danger";
+          this.alertText =
+            this.alertText +
+            ". Please try again or reach out to support@emrys.io if this continues";
+          this.alertVisible = true;
+          this.loadingDashboard = false;
         });
     }
   },
