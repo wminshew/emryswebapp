@@ -127,7 +127,7 @@ export default Vue.extend({
     };
   },
   mounted() {
-    if (localStorage.stripeID == null) {
+    if (localStorage.stripeID !== null && localStorage.stripeState !== "") {
       this.getStripeUserID();
     } else {
       this.stripeID = localStorage.stripeID;
@@ -213,6 +213,7 @@ export default Vue.extend({
           const accountDashboardURL = resp.data;
           this.loadingDashboard = false;
           window.open(accountDashboardURL);
+          // window.open(accountDashboardURL, "_blank");
         })
         .catch(error => {
           if (error.response) {
