@@ -31,16 +31,45 @@
         </p>
       </div>
       <h2>
-        <router-link
-          :to="{
-            name: 'confirm-reset-password',
-            query: { token: bearerToken }
-          }"
-        >
-          Change password
-        </router-link>
+        Payment
       </h2>
-    </div>
+      <form 
+        id="payment-form" 
+        action="postStripeTokenURL"
+        method="post" 
+        @submit.prevent="submitCard"
+      >
+        <div class="form-row">
+          <label for="card-element">
+            Credit or debit card
+          </label>
+          <div 
+            id="card-element" 
+            @change="displayCardError"
+          >
+            <!-- A Stripe Element will be inserted here. -->
+          </div>
+
+          <!-- Used to display Element errors. -->
+          <div 
+            id="card-errors" 
+            role="alert"
+          />
+        </div>
+
+        <button>Submit Card</button>
+      </form><Paste>
+        <h2>
+          <router-link
+            :to="{
+              name: 'confirm-reset-password',
+              query: { token: bearerToken }
+            }"
+          >
+            Change password
+          </router-link>
+        </h2>
+    </paste></div>
   </div>
 </template>
 
@@ -50,7 +79,20 @@ import Alert from "@/components/Alert.vue";
 import LoadingDots from "@/components/LoadingDots.vue";
 import axios from "axios";
 
+// TODO: replace with live
+// const stripe = Stripe("pk_live_ILLijAFHakqFDTnTa0SSLBKJ");
+const stripe = Stripe("pk_test_WUJiWBGxtbnhL8SbkJvLKAn3");
+const elements = stripe.elements();
+const style = {
+  base: {
+    fontSize: "16px",
+    color: "#2ca532"
+  }
+};
+let card: stripe.elements.Element;
+
 const getAccountBalanceURL = "https://api.emrys.io/user/balance";
+const postStripeTokenURL = "https://api.emrys.io/user/stripe";
 
 export default Vue.extend({
   name: "Account",
@@ -77,6 +119,8 @@ export default Vue.extend({
     };
   },
   mounted() {
+    card = elements.create("card", { style });
+    card.mount("#card-element");
     this.getAccountBalance();
   },
   methods: {
@@ -106,6 +150,70 @@ export default Vue.extend({
             ". Please try again or reach out to support@emrys.io if this continues";
           this.alertVisible = true;
           this.loading = false;
+        });
+    },
+    displayCardError(error: ErrorEvent) {
+      const displayError = document.getElementById(
+        "card-errors"
+      ) as HTMLDivElement;
+      if (error) {
+        displayError.textContent = error.message;
+      } else {
+        displayError.textContent = "";
+      }
+    },
+    submitCard(event: Event) {
+      stripe.createToken(card).then(result => {
+        if (result.error) {
+          const errorElement = document.getElementById(
+            "card-errors"
+          ) as HTMLDivElement;
+          errorElement.textContent = result.error.message || null;
+        } else {
+          this.postStripeToken(result.token as stripe.Token);
+        }
+      });
+    },
+    postStripeToken(token: stripe.Token) {
+      // const form = document.getElementById("payment-form") as HTMLFormElement;
+      // const hiddenInput = document.createElement("input");
+      // hiddenInput.setAttribute("type", "hidden");
+      // hiddenInput.setAttribute("name", "stripeToken");
+      // hiddenInput.setAttribute("value", token.id);
+      // form.appendChild(hiddenInput);
+      // form.submit();
+      const bodyFormData = new FormData();
+      bodyFormData.set("name", "stripeToken");
+      bodyFormData.set("value", token.id);
+      axios({
+        method: "post",
+        url: postStripeTokenURL,
+        data: bodyFormData,
+        headers: { "Content-Type": "multipart/form-data" },
+        validateStatus: status => {
+          return status >= 200 && status < 300; // axios default
+        }
+      })
+        .then(resp => {
+          this.alertType = "success";
+          this.alertText = "Card successfully added!";
+          this.alertVisible = true;
+          // TODO: this.loading = false;
+        })
+        .catch(error => {
+          if (error.response) {
+            this.alertText = error.response.data.trim();
+          } else if (error.request) {
+            this.alertText = "Error: no server response received";
+          } else {
+            this.alertText = error.message.trim();
+          }
+          this.alertType = "danger";
+          this.alertText =
+            this.alertText +
+            ". Please try again or reach out to support@emrys.io if this continues";
+          this.alertVisible = true;
+          // TODO: this.loading = false;
         });
     }
   },

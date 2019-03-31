@@ -11,6 +11,7 @@
     "tslint-check": "tslint-config-prettier-check ./tslint.json"
   },
   "dependencies": {
+    "@types/stripe-v3": "^3.0.10",
     "vee-validate": "^2.1.2",
     "vue": "^2.5.17",
     "vue-meta": "^1.5.6",
