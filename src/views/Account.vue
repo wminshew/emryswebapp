@@ -92,7 +92,7 @@ const style = {
 let card: stripe.elements.Element;
 
 const getAccountBalanceURL = "https://api.emrys.io/user/balance";
-const postStripeTokenURL = "https://api.emrys.io/user/stripe";
+const postStripeTokenURL = "https://api.emrys.io/user/stripe/token";
 
 export default Vue.extend({
   name: "Account",
