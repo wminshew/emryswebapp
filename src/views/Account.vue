@@ -183,8 +183,7 @@ export default Vue.extend({
       // form.appendChild(hiddenInput);
       // form.submit();
       const bodyFormData = new FormData();
-      bodyFormData.set("name", "stripeToken");
-      bodyFormData.set("value", token.id);
+      bodyFormData.set("stripeToken", token.id);
       axios({
         method: "post",
         url: postStripeTokenURL,
