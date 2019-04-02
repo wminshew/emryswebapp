@@ -243,8 +243,10 @@ export default Vue.extend({
       // form.appendChild(hiddenInput);
       // form.submit();
       const bodyFormData = new FormData();
-      console.log(token.id);
       bodyFormData.set("stripeToken", token.id);
+      for (const p of bodyFormData) {
+        console.log(p);
+      }
       axios({
         method: "post",
         url: postStripeTokenURL,
@@ -258,6 +260,7 @@ export default Vue.extend({
           this.alertType = "success";
           this.alertText = "Card successfully added!";
           this.alertVisible = true;
+          this.getAccountStripeCardLast4();
           // TODO: this.loading = false;
         })
         .catch(error => {
