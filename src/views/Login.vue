@@ -164,6 +164,8 @@ export default Vue.extend({
           const parsedClaims: JWT = JSON.parse(window.atob(base64));
           const newExpiration = parsedClaims.exp;
           localStorage.tokenExp = newExpiration;
+          localStorage.isUser = parsedClaims.scope.includes("user");
+          localStorage.isMiner = parsedClaims.scope.includes("miner");
           const nextRoute = this.$route.query.redirect || { name: "account" };
           this.$router.push(nextRoute);
         })

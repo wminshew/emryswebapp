@@ -27,96 +27,77 @@
           ${{ accountCredit / 100 }}
         </p>
       </div>
-      <h2>
-        Payments
-      </h2>
-      <loading-dots
-        class="h-8 w-8"
-        :loading="stripePaymentsLoading"
-      />
-      <div v-show="!stripePaymentsLoading">
-        <div 
-          v-show="stripeCardLast4 != ''"
-        >
-          <p>
-            Card on file last 4 digits: {{ stripeCardLast4 }}
-          </p>
-        </div>
-        <form 
-          id="payment-form" 
-          action="postStripeTokenURL"
-          method="post" 
-          @submit.prevent="submitCard"
-        >
-          <label 
-            class="text-xs"
-            for="card-element"
-          />
+      <span v-if="isUser">
+        <h2>
+          Payments
+        </h2>
+        <loading-dots
+          class="h-8 w-8"
+          :loading="loadingStripePayments"
+        />
+        <div v-show="!loadingStripePayments">
           <div 
-            id="card-element" 
-            class="w-full md:w-1/2"
-            @change="displayCardError"
+            v-show="stripeCardLast4 != ''"
           >
-            <!-- A Stripe Element will be inserted here. -->
+            <p>
+              Card on file last 4 digits: {{ stripeCardLast4 }}
+            </p>
           </div>
-
-          <!-- Used to display Element errors. -->
-          <div 
-            id="card-errors" 
-            class="text-xs text-red"
-            role="alert"
-          />
-
-          <button
-            class="btn btn-primary mt-2"
+          <form 
+            id="payment-form" 
+            action="postStripeTokenURL"
+            method="post" 
+            @submit.prevent="submitCard"
           >
-            <span v-if="stripeCardLast4 == ''">
-              Submit Card
-            </span>
-            <span v-else>
-              Update Card
-            </span>
-          </button>
-        </form>
-      </div>
-      <h2>
-        Payouts
-      </h2>
-      <loading-dots
-        class="h-8 w-8"
-        :loading="stripePayoutsLoading"
-      />
-      <div v-show="!stripePayoutsLoading">
-        <div class="flex w-full items-center md:w-auto">
-          <div v-if="registeredWithStripe">
+            <label 
+              class="text-xs"
+              for="card-element"
+            />
+            <div 
+              id="card-element" 
+              class="w-full md:w-1/2"
+              @change="displayCardError"
+            >
+              <!-- A Stripe Element will be inserted here. -->
+            </div>
+
+            <!-- Used to display Element errors. -->
+            <div 
+              id="card-errors" 
+              class="text-xs text-red"
+              role="alert"
+            />
+
             <button
-              class="relative btn btn-primary flex items-center justify-center"
-              @click="getAccountStripeDashboard()"
+              class="btn btn-primary mt-2"
             >
-              <span :class="{ invisible: loadingDashboard }">
-                Launch my stripe dashboard
-                <img 
-                  class="h-6 w-6 py-1 align-middle"
-                  src="@/assets/svg-new-window/new-window.svg"
-                >
+              <span v-if="stripeCardLast4 == ''">
+                Submit Card
               </span>
-              <img 
-                class="absolute w-full h-2 w-2"
-                :class="{ invisible: !loadingDashboard }"
-                style="top: calc(50% - 0.25rem);"
-                src="@/assets/svg-loaders/three-dots.svg"
-              >
+              <span v-else>
+                Update Card
+              </span>
             </button>
-          </div>
-          <div v-else>
-            <a
-              :href="connectWithStripeURL"
-            >
+          </form>
+        </div>
+      </span>
+      <span v-if="isMiner">
+        <h2>
+          Payouts
+        </h2>
+        <loading-dots
+          class="h-8 w-8"
+          :loading="loadingStripePayouts"
+        />
+        <div v-show="!loadingStripePayouts">
+          <div class="flex w-full items-center md:w-auto">
+            <div v-if="registeredWithStripe">
               <button
                 class="relative btn btn-primary flex items-center justify-center"
+                @click="getAccountStripeDashboard()"
               >
                 <span :class="{ invisible: loadingDashboard }">
-                  Connect with stripe
+                  Launch my stripe dashboard
                   <img 
                     class="h-6 w-6 py-1 align-middle"
                     src="@/assets/svg-new-window/new-window.svg"
@@ -129,10 +110,33 @@
                   src="@/assets/svg-loaders/three-dots.svg"
                 >
               </button>
-            </a>
+            </div>
+            <div v-else>
+              <a
+                :href="connectWithStripeURL"
+              >
+                <button
+                  class="relative btn btn-primary flex items-center justify-center"
+                >
+                  <span :class="{ invisible: loadingDashboard }">
+                    Connect with stripe
+                    <img 
+                      class="h-6 w-6 py-1 align-middle"
+                      src="@/assets/svg-new-window/new-window.svg"
+                    >
+                  </span>
+                  <img 
+                    class="absolute w-full h-2 w-2"
+                    :class="{ invisible: !loadingDashboard }"
+                    style="top: calc(50% - 0.25rem);"
+                    src="@/assets/svg-loaders/three-dots.svg"
+                  >
+                </button>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      </span>
       <h2>
         <router-link
           :to="{
@@ -226,13 +230,15 @@ export default Vue.extend({
       alertType: this.$route.query.alertType || "success",
       alertText: this.$route.query.alertText || "",
       connectWithStripeURL,
+      isMiner: localStorage.isMiner,
+      isUser: localStorage.isUser,
       loading: true,
       loadingDashboard: false,
+      loadingStripePayments: true,
+      loadingStripePayouts: true,
       registeredWithStripe: false,
       stripeCardLast4: "",
-      stripeID: "",
-      stripePaymentsLoading: true,
-      stripePayoutsLoading: true
+      stripeID: ""
     };
   },
   created() {
@@ -292,7 +298,7 @@ export default Vue.extend({
       })
         .then(resp => {
           this.stripeCardLast4 = resp.data;
-          this.stripePaymentsLoading = false;
+          this.loadingStripePayments = false;
         })
         .catch(error => {
           if (error.response) {
@@ -307,7 +313,7 @@ export default Vue.extend({
             this.alertText +
             ". Please try again or reach out to support@emrys.io if this continues";
           this.alertVisible = true;
-          this.stripePaymentsLoading = false;
+          this.loadingStripePayments = false;
         });
     },
     displayCardError(error: ErrorEvent) {
@@ -379,7 +385,7 @@ export default Vue.extend({
           if (this.stripeID !== "") {
             localStorage.stripeID = this.stripeID;
             this.registeredWithStripe = true;
-            this.stripePayoutsLoading = false;
+            this.loadingStripePayouts = false;
           } else {
             this.getAccountEmail();
           }
@@ -397,7 +403,7 @@ export default Vue.extend({
             this.alertText +
             ". Please try again or reach out to support@emrys.io if this continues";
           this.alertVisible = true;
-          this.stripePayoutsLoading = false;
+          this.loadingStripePayouts = false;
         });
     },
     getAccountEmail() {
@@ -412,7 +418,7 @@ export default Vue.extend({
           const accountEmail = resp.data;
           this.connectWithStripeURL =
             this.connectWithStripeURL + "&stripe_user[email]=" + accountEmail;
-          this.stripePayoutsLoading = false;
+          this.loadingStripePayouts = false;
         })
         .catch(error => {
           if (error.response) {
@@ -427,7 +433,7 @@ export default Vue.extend({
             this.alertText +
             ". Please try again or reach out to support@emrys.io if this continues";
           this.alertVisible = true;
-          this.stripePayoutsLoading = false;
+          this.loadingStripePayouts = false;
         });
     },
     getAccountStripeDashboard() {

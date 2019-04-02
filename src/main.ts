@@ -40,6 +40,7 @@ router.beforeEach((to, from, next) => {
 declare global {
   interface JWT {
     exp: number;
+    scope: string[];
   }
 
   // https://developers.google.com/gtagjs/reference/api
