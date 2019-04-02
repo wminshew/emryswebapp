@@ -242,13 +242,16 @@ export default Vue.extend({
       // hiddenInput.setAttribute("value", token.id);
       // form.appendChild(hiddenInput);
       // form.submit();
-      const bodyFormData = new FormData();
-      bodyFormData.set("stripeToken", token.id);
+      // const bodyFormData = new FormData();
+      // bodyFormData.set("stripeToken", token.id);
       axios({
         method: "post",
         url: postStripeTokenURL,
-        data: bodyFormData,
-        headers: { "Content-Type": "multipart/form-data" },
+        params: {
+          stripeToken: token.id
+        },
+        // data: bodyFormData,
+        // headers: { "Content-Type": "multipart/form-data" },
         validateStatus: status => {
           return status >= 200 && status < 300; // axios default
         }
