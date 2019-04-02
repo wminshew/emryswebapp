@@ -42,7 +42,7 @@
           v-show="stripeCardLast4 != ''"
         >
           <p>
-            Card on file last 4 digits: ${{ stripeCardLast4 }}
+            Card on file last 4 digits: {{ stripeCardLast4 }}
           </p>
         </div>
         <form 
@@ -54,9 +54,7 @@
           <label 
             class="text-xs"
             for="card-element"
-          >
-            <!-- Credit or debit card -->
-          </label>
+          />
           <div 
             id="card-element" 
             class="w-full md:w-1/2"
