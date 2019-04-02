@@ -33,62 +33,68 @@
       <h2>
         Payments
       </h2>
-      <div 
-        v-show="stripeCardLast4 != ''"
-      >
-        <p>
-          Card on file last 4 digits: ${{ stripeCardLast4 }}
-        </p>
-      </div>
-      <form 
-        id="payment-form" 
-        action="postStripeTokenURL"
-        method="post" 
-        @submit.prevent="submitCard"
-      >
-        <label 
-          class="text-xs"
-          for="card-element"
-        >
-          <!-- Credit or debit card -->
-        </label>
+      <loading-dots
+        class="h-8 w-8"
+        :loading="stripeLoading"
+      />
+      <div v-show="!stripeLoading">
         <div 
-          id="card-element" 
-          class="w-full md:w-1/2"
-          @change="displayCardError"
+          v-show="stripeCardLast4 != ''"
         >
-          <!-- A Stripe Element will be inserted here. -->
+          <p>
+            Card on file last 4 digits: ${{ stripeCardLast4 }}
+          </p>
         </div>
-
-        <!-- Used to display Element errors. -->
-        <div 
-          id="card-errors" 
-          class="text-xs text-red"
-          role="alert"
-        />
-
-        <button
-          class="btn btn-primary mt-2"
+        <form 
+          id="payment-form" 
+          action="postStripeTokenURL"
+          method="post" 
+          @submit.prevent="submitCard"
         >
-          <span v-if="stripeCardLast4 == ''">
-            Submit Card
-          </span>
-          <span v-else>
-            Update Card
-          </span>
-        </button>
-      </form><Paste>
-        <h2>
-          <router-link
-            :to="{
-              name: 'confirm-reset-password',
-              query: { token: bearerToken }
-            }"
+          <label 
+            class="text-xs"
+            for="card-element"
           >
-            Change password
-          </router-link>
-        </h2>
-    </paste></div>
+            <!-- Credit or debit card -->
+          </label>
+          <div 
+            id="card-element" 
+            class="w-full md:w-1/2"
+            @change="displayCardError"
+          >
+            <!-- A Stripe Element will be inserted here. -->
+          </div>
+
+          <!-- Used to display Element errors. -->
+          <div 
+            id="card-errors" 
+            class="text-xs text-red"
+            role="alert"
+          />
+
+          <button
+            class="btn btn-primary mt-2"
+          >
+            <span v-if="stripeCardLast4 == ''">
+              Submit Card
+            </span>
+            <span v-else>
+              Update Card
+            </span>
+          </button>
+        </form>
+      </div>
+      <h2>
+        <router-link
+          :to="{
+            name: 'confirm-reset-password',
+            query: { token: bearerToken }
+          }"
+        >
+          Change password
+        </router-link>
+      </h2>
+    </div>
   </div>
 </template>
 
@@ -144,10 +150,11 @@ export default Vue.extend({
       alertType: "success",
       alertText: "",
       loading: true,
-      stripeCardLast4: ""
+      stripeCardLast4: "",
+      stripeLoading: true
     };
   },
-  mounted() {
+  created() {
     card = elements.create("card", { style });
     card.mount("#card-element");
     this.getAccountStripeCardLast4();
@@ -192,7 +199,7 @@ export default Vue.extend({
       })
         .then(resp => {
           this.stripeCardLast4 = resp.data;
-          // this.loading = false;
+          this.stripeLoading = false;
         })
         .catch(error => {
           if (error.response) {
@@ -207,7 +214,7 @@ export default Vue.extend({
             this.alertText +
             ". Please try again or reach out to support@emrys.io if this continues";
           this.alertVisible = true;
-          // this.loading = false;
+          this.stripeLoading = false;
         });
     },
     displayCardError(error: ErrorEvent) {
