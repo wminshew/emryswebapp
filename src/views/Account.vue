@@ -98,9 +98,7 @@ import Alert from "@/components/Alert.vue";
 import LoadingDots from "@/components/LoadingDots.vue";
 import axios from "axios";
 
-// TODO: replace with live
-// const stripe = Stripe("pk_live_ILLijAFHakqFDTnTa0SSLBKJ");
-const stripe = Stripe("pk_test_WUJiWBGxtbnhL8SbkJvLKAn3");
+const stripe = Stripe("pk_live_ILLijAFHakqFDTnTa0SSLBKJ");
 const elements = stripe.elements();
 const style = {
   base: {
@@ -235,23 +233,12 @@ export default Vue.extend({
       });
     },
     postStripeToken(token: stripe.Token) {
-      // const form = document.getElementById("payment-form") as HTMLFormElement;
-      // const hiddenInput = document.createElement("input");
-      // hiddenInput.setAttribute("type", "hidden");
-      // hiddenInput.setAttribute("name", "stripeToken");
-      // hiddenInput.setAttribute("value", token.id);
-      // form.appendChild(hiddenInput);
-      // form.submit();
-      // const bodyFormData = new FormData();
-      // bodyFormData.set("stripeToken", token.id);
       axios({
         method: "post",
         url: postStripeTokenURL,
         params: {
           stripeToken: token.id
         },
-        // data: bodyFormData,
-        // headers: { "Content-Type": "multipart/form-data" },
         validateStatus: status => {
           return status >= 200 && status < 300; // axios default
         }
