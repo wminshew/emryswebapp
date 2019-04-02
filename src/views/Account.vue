@@ -31,33 +31,52 @@
         </p>
       </div>
       <h2>
-        Payment
+        Payments
       </h2>
+      <div 
+        v-show="stripeCardLast4 != ''"
+      >
+        <p>
+          Card on file last 4 digits: ${{ stripeCardLast4 }}
+        </p>
+      </div>
       <form 
         id="payment-form" 
         action="postStripeTokenURL"
         method="post" 
         @submit.prevent="submitCard"
       >
-        <div class="form-row">
-          <label for="card-element">
-            Credit or debit card
-          </label>
-          <div 
-            id="card-element" 
-            @change="displayCardError"
-          >
-            <!-- A Stripe Element will be inserted here. -->
-          </div>
-
-          <!-- Used to display Element errors. -->
-          <div 
-            id="card-errors" 
-            role="alert"
-          />
+        <label 
+          class="text-xs"
+          for="card-element"
+        >
+          <!-- Credit or debit card -->
+        </label>
+        <div 
+          id="card-element" 
+          class="w-full md:w-1/2"
+          @change="displayCardError"
+        >
+          <!-- A Stripe Element will be inserted here. -->
         </div>
 
-        <button>Submit Card</button>
+        <!-- Used to display Element errors. -->
+        <div 
+          id="card-errors" 
+          class="text-xs text-red"
+          role="alert"
+        />
+
+        <button
+          class="btn btn-primary mt-2"
+        >
+          <span v-if="stripeCardLast4 == ''">
+            Submit Card
+          </span>
+          <span v-else>
+            Update Card
+          </span>
+        </button>
       </form><Paste>
         <h2>
           <router-link
@@ -86,12 +105,23 @@ const elements = stripe.elements();
 const style = {
   base: {
     fontSize: "16px",
-    color: "#2ca532"
+    color: "#2ca532",
+    fontSmoothing: "antialiased",
+    "::placeholder": {
+      color: "#aab7c4"
+    }
+  },
+  invalid: {
+    // color: "#fa755a",
+    // iconColor: "#fa755a"
+    color: "#e3342f",
+    iconColor: "#e3342f"
   }
 };
 let card: stripe.elements.Element;
 
 const getAccountBalanceURL = "https://api.emrys.io/user/balance";
+const getAccountStripeCardLast4URL = "https://api.emrys.io/user/stripe/last4";
 const postStripeTokenURL = "https://api.emrys.io/user/stripe/token";
 
 export default Vue.extend({
@@ -115,12 +145,14 @@ export default Vue.extend({
       alertVisible: false,
       alertType: "success",
       alertText: "",
-      loading: true
+      loading: true,
+      stripeCardLast4: ""
     };
   },
   mounted() {
     card = elements.create("card", { style });
     card.mount("#card-element");
+    this.getAccountStripeCardLast4();
     this.getAccountBalance();
   },
   methods: {
@@ -150,6 +182,34 @@ export default Vue.extend({
             ". Please try again or reach out to support@emrys.io if this continues";
           this.alertVisible = true;
           this.loading = false;
+        });
+    },
+    getAccountStripeCardLast4() {
+      axios({
+        method: "get",
+        url: getAccountStripeCardLast4URL,
+        validateStatus: status => {
+          return status >= 200 && status < 300; // axios default
+        }
+      })
+        .then(resp => {
+          this.stripeCardLast4 = resp.data;
+          // this.loading = false;
+        })
+        .catch(error => {
+          if (error.response) {
+            this.alertText = error.response.data.trim();
+          } else if (error.request) {
+            this.alertText = "Error: no server response received";
+          } else {
+            this.alertText = error.message.trim();
+          }
+          this.alertType = "danger";
+          this.alertText =
+            this.alertText +
+            ". Please try again or reach out to support@emrys.io if this continues";
+          this.alertVisible = true;
+          // this.loading = false;
         });
     },
     displayCardError(error: ErrorEvent) {
@@ -183,6 +243,7 @@ export default Vue.extend({
       // form.appendChild(hiddenInput);
       // form.submit();
       const bodyFormData = new FormData();
+      console.log(token.id);
       bodyFormData.set("stripeToken", token.id);
       axios({
         method: "post",
