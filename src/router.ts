@@ -28,18 +28,6 @@ export default new Router({
         import(/* webpackChunkName: "account" */ "./views/Account.vue")
     },
     {
-      path: "/stripe",
-      name: "stripe",
-      meta: {
-        requiresAuth: true
-      },
-      // route level code-splitting
-      // this generates a separate chunk (stripe.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "stripe" */ "./views/Stripe.vue")
-    },
-    {
       path: "/stripe/confirm",
       name: "stripe-confirm",
       meta: {

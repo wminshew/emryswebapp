@@ -16,18 +16,15 @@
       <h2
         style="margin-top:0;"
       >
-        Balance
+        Credit
       </h2>
       <loading-dots
         class="h-8 w-8"
         :loading="loading"
       />
       <div v-show="!loading">
-        <p v-if="accountBalance >= 0">
-          ${{ accountBalance }} to be paid at week end.
-        </p>
-        <p v-else>
-          ${{ -accountBalance }} to be charged at week end.
+        <p>
+          ${{ accountCredit / 100 }}
         </p>
       </div>
       <h2>
@@ -35,9 +32,9 @@
       </h2>
       <loading-dots
         class="h-8 w-8"
-        :loading="stripeLoading"
+        :loading="stripePaymentsLoading"
       />
-      <div v-show="!stripeLoading">
+      <div v-show="!stripePaymentsLoading">
         <div 
           v-show="stripeCardLast4 != ''"
         >
@@ -83,6 +80,65 @@
         </form>
       </div>
       <h2>
+        Payouts
+      </h2>
+      <loading-dots
+        class="h-8 w-8"
+        :loading="stripePayoutsLoading"
+      />
+      <div v-show="!stripePayoutsLoading">
+        <div class="flex w-full items-center md:w-auto">
+          <div v-if="registeredWithStripe">
+            <button
+              class="relative btn btn-primary flex items-center justify-center"
+              @click="getAccountStripeDashboard()"
+            >
+              <span :class="{ invisible: loadingDashboard }">
+                Launch my stripe dashboard
+                <img 
+                  class="h-6 w-6 py-1 align-middle"
+                  src="@/assets/svg-new-window/new-window.svg"
+                >
+              </span>
+              <img 
+                class="absolute w-full h-2 w-2"
+                :class="{ invisible: !loadingDashboard }"
+                style="top: calc(50% - 0.25rem);"
+                src="@/assets/svg-loaders/three-dots.svg"
+              >
+            </button>
+          </div>
+          <div v-else>
+            <a
+              :href="connectWithStripeURL"
+            >
+              <!-- <img  -->
+              <!--   class="h&#45;8" -->
+              <!--   src="@/assets/stripe/connect&#45;button/blue&#45;on&#45;light@3x.png"  -->
+              <!--   alt="connect with stripe" -->
+              <!-- > -->
+              <button
+                class="relative btn btn-primary flex items-center justify-center"
+              >
+                <span :class="{ invisible: loadingDashboard }">
+                  Connect with stripe
+                  <img 
+                    class="h-6 w-6 py-1 align-middle"
+                    src="@/assets/svg-new-window/new-window.svg"
+                  >
+                </span>
+                <img 
+                  class="absolute w-full h-2 w-2"
+                  :class="{ invisible: !loadingDashboard }"
+                  style="top: calc(50% - 0.25rem);"
+                  src="@/assets/svg-loaders/three-dots.svg"
+                >
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <h2>
         <router-link
           :to="{
             name: 'confirm-reset-password',
@@ -122,9 +178,34 @@ const style = {
 };
 let card: stripe.elements.Element;
 
-const getAccountBalanceURL = "https://api.emrys.io/user/balance";
+const getAccountCreditURL = "https://api.emrys.io/user/credit";
 const getAccountStripeCardLast4URL = "https://api.emrys.io/user/stripe/last4";
 const postStripeTokenURL = "https://api.emrys.io/user/stripe/token";
+
+const getAccountStripeIDURL = "https://api.emrys.io/user/stripe-id";
+const getAccountEmailURL = "https://api.emrys.io/user/email";
+const getAccountStripeDashboardURL =
+  "https://api.emrys.io/user/stripe/dashboard";
+
+const stripeRedirectURI = "https://www.emrys.io/stripe";
+const stripeClientID = "ca_EmI3qeGAa5WoIvSuiz1wIbgAyP4vcYRw";
+
+let stripeState: string;
+if (localStorage.stripeState == null) {
+  stripeState = Math.random()
+    .toString(36)
+    .slice(2);
+  localStorage.stripeState = stripeState;
+} else {
+  stripeState = localStorage.stripeState;
+}
+const connectWithStripeURL =
+  "https://connect.stripe.com/express/oauth/authorize?redirect_uri=" +
+  stripeRedirectURI +
+  "&client_id=" +
+  stripeClientID +
+  "&state=" +
+  stripeState;
 
 export default Vue.extend({
   name: "Account",
@@ -143,37 +224,51 @@ export default Vue.extend({
   },
   data() {
     return {
-      accountBalance: 0,
-      alertVisible: false,
-      alertType: "success",
-      alertText: "",
+      accountCredit: 0,
+      alertVisible:
+        Object.keys(this.$route.query).length > 0 &&
+        !(this.$route.query.alertText === ""),
+      alertType: this.$route.query.alertType || "success",
+      alertText: this.$route.query.alertText || "",
+      connectWithStripeURL,
       loading: true,
+      loadingDashboard: false,
+      registeredWithStripe: false,
       stripeCardLast4: "",
-      stripeLoading: true
+      stripeID: "",
+      stripePaymentsLoading: true,
+      stripePayoutsLoading: true
     };
   },
   created() {
     card = elements.create("card", { style });
     this.getAccountStripeCardLast4();
-    this.getAccountBalance();
+    this.getAccountCredit();
   },
   mounted() {
     card.mount("#card-element");
+    if (localStorage.stripeID !== null && localStorage.stripeState !== "") {
+      this.getStripeUserID();
+    } else {
+      this.stripeID = localStorage.stripeID;
+      this.registeredWithStripe = true;
+      this.loading = false;
+    }
   },
   destroyed() {
     card.destroy();
   },
   methods: {
-    getAccountBalance() {
+    getAccountCredit() {
       axios({
         method: "get",
-        url: getAccountBalanceURL,
+        url: getAccountCreditURL,
         validateStatus: status => {
           return status >= 200 && status < 300; // axios default
         }
       })
         .then(resp => {
-          this.accountBalance = resp.data;
+          this.accountCredit = resp.data;
           this.loading = false;
         })
         .catch(error => {
@@ -202,7 +297,7 @@ export default Vue.extend({
       })
         .then(resp => {
           this.stripeCardLast4 = resp.data;
-          this.stripeLoading = false;
+          this.stripePaymentsLoading = false;
         })
         .catch(error => {
           if (error.response) {
@@ -217,7 +312,7 @@ export default Vue.extend({
             this.alertText +
             ". Please try again or reach out to support@emrys.io if this continues";
           this.alertVisible = true;
-          this.stripeLoading = false;
+          this.stripePaymentsLoading = false;
         });
     },
     displayCardError(error: ErrorEvent) {
@@ -274,6 +369,100 @@ export default Vue.extend({
             ". Please try again or reach out to support@emrys.io if this continues";
           this.alertVisible = true;
           // TODO: this.loading = false;
+        });
+    },
+    getStripeUserID() {
+      axios({
+        method: "get",
+        url: getAccountStripeIDURL,
+        validateStatus: status => {
+          return status >= 200 && status < 300; // axios default
+        }
+      })
+        .then(resp => {
+          this.stripeID = resp.data;
+          if (this.stripeID !== "") {
+            localStorage.stripeID = this.stripeID;
+            this.registeredWithStripe = true;
+            this.stripePayoutsLoading = false;
+          } else {
+            this.getAccountEmail();
+          }
+        })
+        .catch(error => {
+          if (error.response) {
+            this.alertText = error.response.data.trim();
+          } else if (error.request) {
+            this.alertText = "Error: no server response received";
+          } else {
+            this.alertText = error.message.trim();
+          }
+          this.alertType = "danger";
+          this.alertText =
+            this.alertText +
+            ". Please try again or reach out to support@emrys.io if this continues";
+          this.alertVisible = true;
+          this.stripePayoutsLoading = false;
+        });
+    },
+    getAccountEmail() {
+      axios({
+        method: "get",
+        url: getAccountEmailURL,
+        validateStatus: status => {
+          return status >= 200 && status < 300; // axios default
+        }
+      })
+        .then(resp => {
+          const accountEmail = resp.data;
+          this.connectWithStripeURL =
+            this.connectWithStripeURL + "&stripe_user[email]=" + accountEmail;
+          this.stripePayoutsLoading = false;
+        })
+        .catch(error => {
+          if (error.response) {
+            this.alertText = error.response.data.trim();
+          } else if (error.request) {
+            this.alertText = "Error: no server response received";
+          } else {
+            this.alertText = error.message.trim();
+          }
+          this.alertType = "danger";
+          this.alertText =
+            this.alertText +
+            ". Please try again or reach out to support@emrys.io if this continues";
+          this.alertVisible = true;
+          this.stripePayoutsLoading = false;
+        });
+    },
+    getAccountStripeDashboard() {
+      this.loadingDashboard = true;
+      axios({
+        method: "get",
+        url: getAccountStripeDashboardURL,
+        validateStatus: status => {
+          return status >= 200 && status < 300; // axios default
+        }
+      })
+        .then(resp => {
+          const accountDashboardURL = resp.data;
+          this.loadingDashboard = false;
+          window.open(accountDashboardURL, "_blank");
+        })
+        .catch(error => {
+          if (error.response) {
+            this.alertText = error.response.data.trim();
+          } else if (error.request) {
+            this.alertText = "Error: no server response received";
+          } else {
+            this.alertText = error.message.trim();
+          }
+          this.alertType = "danger";
+          this.alertText =
+            this.alertText +
+            ". Please try again or reach out to support@emrys.io if this continues";
+          this.alertVisible = true;
+          this.loadingDashboard = false;
         });
     }
   },
