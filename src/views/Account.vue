@@ -156,9 +156,11 @@ export default Vue.extend({
   },
   created() {
     card = elements.create("card", { style });
-    card.mount("#card-element");
     this.getAccountStripeCardLast4();
     this.getAccountBalance();
+  },
+  mounted() {
+    card.mount("#card-element");
   },
   methods: {
     getAccountBalance() {
