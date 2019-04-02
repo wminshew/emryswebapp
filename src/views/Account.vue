@@ -16,7 +16,7 @@
       <h2
         style="margin-top:0;"
       >
-        Account balance
+        Balance
       </h2>
       <loading-dots
         class="h-8 w-8"
