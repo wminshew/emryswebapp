@@ -112,11 +112,6 @@
             <a
               :href="connectWithStripeURL"
             >
-              <!-- <img  -->
-              <!--   class="h&#45;8" -->
-              <!--   src="@/assets/stripe/connect&#45;button/blue&#45;on&#45;light@3x.png"  -->
-              <!--   alt="connect with stripe" -->
-              <!-- > -->
               <button
                 class="relative btn btn-primary flex items-center justify-center"
               >
