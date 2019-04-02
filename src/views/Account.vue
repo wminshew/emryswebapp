@@ -160,6 +160,9 @@ export default Vue.extend({
   mounted() {
     card.mount("#card-element");
   },
+  destroyed() {
+    card.destroy();
+  },
   methods: {
     getAccountBalance() {
       axios({
