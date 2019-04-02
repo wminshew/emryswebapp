@@ -244,9 +244,6 @@ export default Vue.extend({
       // form.submit();
       const bodyFormData = new FormData();
       bodyFormData.set("stripeToken", token.id);
-      for (const p of bodyFormData) {
-        console.log(p);
-      }
       axios({
         method: "post",
         url: postStripeTokenURL,
