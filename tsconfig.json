@@ -12,7 +12,8 @@
     "baseUrl": ".",
     "types": [
       "webpack-env",
-      "stripe-v3"
+      "stripe-v3",
+      "gtag.js"
     ],
     "paths": {
       "@/*": [

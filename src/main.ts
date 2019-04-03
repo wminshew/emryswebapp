@@ -42,13 +42,6 @@ declare global {
     exp: number;
     scope: string[];
   }
-
-  // https://developers.google.com/gtagjs/reference/api
-  function gtag(
-    command: string,
-    params: string | object,
-    opts: object | null
-  ): void;
 }
 
 const GA_TRACKING_ID = "UA-107715418-2";
