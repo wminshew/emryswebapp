@@ -7,7 +7,6 @@ import VeeValidate from "vee-validate";
 Vue.config.productionTip = false;
 Vue.use(VeeValidate);
 Vue.use(Meta);
-// Vue.prototype.$baseURL = "https://www.emrys.io";
 Vue.prototype.$baseURL =
   process.env.NODE_ENV === "production"
     ? "https://www.emrys.io"
