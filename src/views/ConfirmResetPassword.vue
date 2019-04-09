@@ -146,7 +146,10 @@ export default Vue.extend({
             this.alertText = resp.data.trim();
             this.alertVisible = true;
             this.loading = false;
-            // TODO: this.$router.push({ name: 'login', query: { alertType: this.alertType, alertText: this.alertText } })
+            this.$router.push({
+              name: "login",
+              query: { alertType: this.alertType, alertText: this.alertText }
+            });
           })
           .catch(error => {
             if (error.response) {
@@ -162,6 +165,10 @@ export default Vue.extend({
               ". Please try again or reach out to support@emrys.io if this continues";
             this.alertVisible = true;
             this.loading = false;
+            this.$router.push({
+              name: "login",
+              query: { alertType: this.alertType, alertText: this.alertText }
+            });
           });
       }
     }
