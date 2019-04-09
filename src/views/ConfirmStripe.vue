@@ -1,6 +1,6 @@
 <template>
   <div
-    id="confirm-email"
+    id="confirm-stripe"
     class="py-8 px-4"
     style="min-height: 70vh;"
   >
@@ -68,7 +68,7 @@ export default Vue.extend({
           this.alertType = "success";
           this.alertText = "Stripe account confirmed!";
           this.$router.push({
-            name: "stripe",
+            name: "account",
             query: {
               alertType: this.alertType,
               alertText: this.alertText
@@ -88,7 +88,7 @@ export default Vue.extend({
             this.alertText +
             ". Please try again or reach out to support@emrys.io if this continues";
           this.$router.push({
-            name: "stripe",
+            name: "account",
             query: {
               alertType: this.alertType,
               alertText: this.alertText
