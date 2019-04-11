@@ -121,13 +121,13 @@ const faqs: FaqObject[] = [
   {
     id: 0,
     question: "How often will I be charged / paid?",
-    answer: `Weekly.`
+    answer: `Monthly.`
   },
   {
     id: 0,
     question: "Will I get paid for idling on the network?",
     answer: `No, suppliers are only paid for jobs completed. However, the 
-    client has the ability to run another command while idle on the network. 
+    supplier has the ability to run another command while idle on the network. 
     Many of our early suppliers used this to mine cryptocurrencies inbetween jobs.`
   },
   {
@@ -141,6 +141,26 @@ const faqs: FaqObject[] = [
     answer: `Suppliers are stiffly penalized for failing jobs. Whether this 
     happens accidentally via internet failure or intentionally via manually 
     canceling or hardware fraud (which we monitor closely) does not matter.`
+  },
+  {
+    id: 0,
+    question: "What happens if a miner fails to complete my job?",
+    answer: `We expect this to be rare but you will not be charged for the time,
+    and will grant add'l credits on a case-by-case basis.`
+  },
+  {
+    id: 0,
+    question: `What happens the job is completed but I suspect the miner was somehow fradulent
+    (i.e. used hardware less than your requirements)?`,
+    answer: `We have extensive supplier checks & monitoring in place and so expect this to be rare,
+    but email support for add'l analysis and if confirmed you will be handsomely rewarded.`
+  },
+  {
+    id: 0,
+    question: `What if my job exceeds my requested disk quota?`,
+    answer: `We have extensive job checks & monitoring in place and if we detect the disk quota is
+    exceeded will promptly cancel the job. You will still be charged accordingly. (Disk space is
+    relatively cheap, and we require a buffer so we hope this won't happen often.`
   },
   {
     id: 0,
