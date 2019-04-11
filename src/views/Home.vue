@@ -25,12 +25,12 @@
         <div
           class="text-lg md:text-xl mb-6"
         >
-          <!-- Fast, cheap, efficient. // TODO: ask owen? -->
           Fast, efficient, effective.
         </div>
         <div>
-          <router-link
-            :to="{name: 'user'}"
+          <a
+            href="https://docs.emrys.io/docs/users/tutorial/"
+            target="_blank"
           >
             <button 
               class="btn btn-secondary border-2"
@@ -39,10 +39,11 @@
             >
               Use
             </button>
-          </router-link>
-          <router-link
+          </a>
+          <a
             class="ml-6"
-            :to="{name: 'supplier'}"
+            href="https://docs.emrys.io/docs/suppliers/config"
+            target="_blank"
           >
             <button 
               class="btn btn-secondary border-2"
@@ -51,7 +52,7 @@
             >
               Supply
             </button>
-          </router-link>
+          </a>
         </div>
       </div>
     </div>
