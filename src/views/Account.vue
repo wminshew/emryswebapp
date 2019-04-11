@@ -29,7 +29,11 @@
       </div>
       <span v-if="isUser">
         <h2>
-          Payments
+          <span>Payments</span>
+          <img 
+            class="pl-4 align-middle"
+            src="@/assets/stripe/powered_by_stripe.svg"
+          >
         </h2>
         <loading-dots
           class="h-8 w-8"
@@ -83,7 +87,11 @@
       </span>
       <span v-if="isMiner">
         <h2>
-          Payouts
+          <span>Payouts</span>
+          <img 
+            class="pl-4 align-middle"
+            src="@/assets/stripe/powered_by_stripe.svg"
+          >
         </h2>
         <loading-dots
           class="h-8 w-8"
@@ -97,7 +105,7 @@
                 @click="getAccountStripeDashboard()"
               >
                 <span :class="{ invisible: loadingDashboard }">
-                  Launch my stripe dashboard
+                  Launch dashboard
                   <img 
                     class="h-6 w-6 py-1 align-middle"
                     src="@/assets/svg-new-window/new-window.svg"
