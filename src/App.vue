@@ -44,10 +44,9 @@ export default Vue.extend({
         const base64Url = newToken.split(".")[1];
         const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
         const parsedClaims: JWT = JSON.parse(window.atob(base64));
-        const newExpiration = parsedClaims.exp;
-        localStorage.tokenExp = newExpiration;
-        localStorage.isUser = parsedClaims.scope.includes("user");
+        localStorage.tokenExp = parsedClaims.exp;
         localStorage.isMiner = parsedClaims.scope.includes("miner");
+        localStorage.isUser = parsedClaims.scope.includes("user");
       }
     }
   },
