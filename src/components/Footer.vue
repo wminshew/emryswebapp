@@ -78,8 +78,13 @@
             </a>
           </li>
           <li>
-            <a href="http://forum.emrys.io">
+            <a href="https://forum.emrys.io">
               Forum
+            </a>
+          </li>
+          <li>
+            <a href="https://slack.emrys.io">
+              Slack
             </a>
           </li>
         </ul>
