@@ -73,18 +73,35 @@
             </a>
           </li>
           <li>
-            <a href="https://twitter.com/emrysio">
+            <a 
+              target="_blank" 
+              href="https://twitter.com/emrysio"
+            >
               Twitter
             </a>
           </li>
           <li>
-            <a href="https://forum.emrys.io">
+            <a 
+              target="_blank" 
+              href="https://forum.emrys.io"
+            >
               Forum
             </a>
           </li>
           <li>
-            <a href="https://slack.emrys.io">
+            <a 
+              target="_blank" 
+              href="https://emrysio.slack.com"
+            >
               Slack
+            </a>
+          </li>
+          <li>
+            <a 
+              target="_blank" 
+              href="https://docs.emrys.io/docs/feedback"
+            >
+              CLI 
             </a>
           </li>
         </ul>
