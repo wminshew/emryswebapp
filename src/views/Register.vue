@@ -30,7 +30,7 @@
           <input 
             id="firstName" 
             v-model="firstName"
-            v-validate="'required|firstName'"
+            v-validate="'required'"
             name="firstName"
             class="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-primary" 
             type="text" 
@@ -62,7 +62,7 @@
           <input 
             id="lastName" 
             v-model="lastName"
-            v-validate="'required|lastName'"
+            v-validate="'required'"
             name="lastName"
             class="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-primary" 
             type="text" 
