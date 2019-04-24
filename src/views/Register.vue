@@ -21,6 +21,70 @@
         <div class="md:w-1/3">
           <label 
             class="block text-grey text-left md:text-right mb-1 md:mb-0 pr-4" 
+            for="firstName"
+          >
+            First Name
+          </label>
+        </div>
+        <div class="md:w-2/3">
+          <input 
+            id="firstName" 
+            v-model="firstName"
+            v-validate="'required|firstName'"
+            name="firstName"
+            class="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-primary" 
+            type="text" 
+            placeholder="Satoshi"
+            required
+          >
+        </div>
+      </div>
+      <div class="text-left md:flex">
+        <div class="md:w-1/3" />
+        <div class="relative md:w-2/3">
+          <span
+            v-if="errors.has('firstName')" 
+            class="absolute w-full text-xs text-red"
+          >{{ errors.first('firstName') }}
+          </span>
+        </div>
+      </div>
+      <div class="md:flex md:items-center mt-6">
+        <div class="md:w-1/3">
+          <label 
+            class="block text-grey text-left md:text-right mb-1 md:mb-0 pr-4" 
+            for="lastName"
+          >
+            Last Name
+          </label>
+        </div>
+        <div class="md:w-2/3">
+          <input 
+            id="lastName" 
+            v-model="lastName"
+            v-validate="'required|lastName'"
+            name="lastName"
+            class="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-primary" 
+            type="text" 
+            placeholder="Nakamoto"
+            required
+          >
+        </div>
+      </div>
+      <div class="text-left md:flex">
+        <div class="md:w-1/3" />
+        <div class="relative md:w-2/3">
+          <span
+            v-if="errors.has('lastName')" 
+            class="absolute w-full text-xs text-red"
+          >{{ errors.last('lastName') }}
+          </span>
+        </div>
+      </div>
+      <div class="md:flex md:items-center mt-6">
+        <div class="md:w-1/3">
+          <label 
+            class="block text-grey text-left md:text-right mb-1 md:mb-0 pr-4" 
             for="email"
           >
             Email
@@ -182,14 +246,18 @@ import axios from "axios";
 import { Validator } from "vee-validate";
 
 const registerURL = "https://api.emrys.io/auth/account";
-// const btnPrimary = "btn-primary";
-// const btnDisabled = "btn-disabled";
 
 const dict = {
   custom: {
     email: {
       required: "Required",
       email: "Must be valid email address"
+    },
+    firstName: {
+      required: "Required"
+    },
+    lastName: {
+      required: "Required"
     },
     password: {
       required: "Required",
@@ -209,6 +277,8 @@ export default Vue.extend({
   data() {
     return {
       email: "",
+      firstName: "",
+      lastName: "",
       password: "",
       checkedUser: true,
       checkedSupplier: true,
@@ -234,6 +304,12 @@ export default Vue.extend({
       if (!(this.checkedUser || this.checkedSupplier)) {
         return false;
       }
+      if (this.firstName === "") {
+        return false;
+      }
+      if (this.lastName === "") {
+        return false;
+      }
       if (this.email === "" || this.$validator.errors.has("email")) {
         return false;
       }
@@ -250,6 +326,8 @@ export default Vue.extend({
           url: registerURL,
           data: {
             email: this.email,
+            firstName: this.firstName,
+            lastName: this.lastName,
             password: this.password
           },
           params: {
