@@ -326,8 +326,8 @@ export default Vue.extend({
           url: registerURL,
           data: {
             email: this.email,
-            firstName: this.firstName,
-            lastName: this.lastName,
+            first_name: this.firstName,
+            last_name: this.lastName,
             password: this.password
           },
           params: {
