@@ -91,7 +91,7 @@
           <li>
             <a 
               target="_blank" 
-              href="https://emrysio.slack.com"
+              href="https://join.slack.com/t/emrysio/shared_invite/enQtNjE2NTg5MzUwNzA5LTIxY2M2NzExMWQ5MmFhYzQ1YTZlMWViNjIwYjgyZGZhZTczOTE5YmNhZjhiNTY5OTFjNzE1NDc0ZDc4OGRlZWY"
             >
               Slack
             </a>
