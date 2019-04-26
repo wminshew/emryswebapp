@@ -5,7 +5,12 @@ import Home from "./views/Home.vue";
 Vue.use(Router);
 
 export default new Router({
-  scrollBehavior() {
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else if (to.hash) {
+      return { selector: to.hash };
+    }
     return { x: 0, y: 0 };
   },
   mode: "history",

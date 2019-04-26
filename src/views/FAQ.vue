@@ -115,8 +115,8 @@ const faqs: FaqObject[] = [
   {
     id: 0,
     question: "Can I launch jupyter notebooks?",
-    answer: `Today, we only support job-based python script execution. But 
-    this feature is very high on our priority list (1Q19, possibly earlier).`
+    answer: `Yes! The CLI has a subcommand (emrys notebook) for launching remote
+		jupyter kernels, which may then be accessed from your localhost.`
   },
   {
     id: 0,
@@ -128,7 +128,7 @@ const faqs: FaqObject[] = [
     question: "Will I get paid for idling on the network?",
     answer: `No, suppliers are only paid for jobs completed. However, the 
     supplier has the ability to run another command while idle on the network. 
-    Many of our early suppliers used this to mine cryptocurrencies inbetween jobs.`
+    Many suppliers use this to mine cryptocurrencies between jobs.`
   },
   {
     id: 0,
@@ -165,7 +165,8 @@ const faqs: FaqObject[] = [
   {
     id: 0,
     question: "Will my machine be secure?",
-    answer: `We believe so. Security can never be perfect, but jobs are executed 
+    answer: `We believe so, and our running our own machines on the network. 
+		Security can never be perfect, but jobs are executed 
     in tightly locked down containers as unprivileged users with all kernel 
     capabilities dropped and the no-new-privileges flag enabled. Additional 
     security measures are recommnded in our 
@@ -228,6 +229,15 @@ export default Vue.extend({
     return {
       faqs
     };
+  },
+  mounted() {
+    // From testing, without a brief timeout, it won't work.
+    setTimeout(() => this.scrollFix(this.$route.hash), 1);
+  },
+  methods: {
+    scrollFix(hashbang: string) {
+      location.href = hashbang;
+    }
   },
   metaInfo: {
     title: "faq"

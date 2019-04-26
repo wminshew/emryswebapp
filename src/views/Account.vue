@@ -35,6 +35,18 @@
             src="@/assets/stripe/powered_by_stripe.svg"
           >
         </h2>
+        <p>
+          A card on file is required to submit jobs to the network; however, it won't be charged until you run out of credits. 
+          Learn more about how 
+          <!-- <a  -->
+          <!--   target="_blank"  -->
+          <!--   href="https://www.emrys.io/frequently&#45;asked&#45;questions#2" -->
+          <!-- >pricing is determined</a> -->
+          <router-link
+            :to="{ path: 'frequently-asked-questions#2' }"
+          >pricing is determined</router-link>
+          on emrys.
+        </p>
         <loading-dots
           class="h-8 w-8"
           :loading="loadingStripePayments"
