@@ -97,10 +97,10 @@ const faqs: FaqObject[] = [
   {
     id: 0,
     question: "How is pricing determined?",
-    answer: `Each job is second-price auctioned to idle suppliers meeting 
+    answer: `Each job is auctioned to idle suppliers meeting 
     the user-defined hardware requirements. YMMV, but as a rule of thumb 
     we expect a gtx1080Ti to be available for somewhere between $0.1 and 
-    $0.5 / hr (to be refined with more data).`
+    $0.2 / hr (to be refined with more data).`
   },
   {
     id: 0,
