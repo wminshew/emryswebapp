@@ -236,7 +236,9 @@ export default Vue.extend({
   },
   methods: {
     scrollFix(hashbang: string) {
-      location.href = hashbang;
+      if (hashbang !== "") {
+        location.href = hashbang;
+      }
     }
   },
   metaInfo: {
