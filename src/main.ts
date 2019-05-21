@@ -16,7 +16,11 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     const time = Math.floor(Date.now() / 1000);
     if (localStorage.bearerToken === "") {
-      next({
+      // next({
+      //   name: "login",
+      //   query: { redirect: to.fullPath }
+      // });
+      router.push({
         name: "login",
         query: { redirect: to.fullPath }
       });
