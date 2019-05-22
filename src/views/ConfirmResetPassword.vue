@@ -43,7 +43,7 @@
         <div class="relative md:w-2/3">
           <span
             v-if="errors.has('password')" 
-            class="absolute w-full text-xs text-red"
+            class="flex w-full text-xs text-red"
           >{{ errors.first('password') }}
           </span>
         </div>
