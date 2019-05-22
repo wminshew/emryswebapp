@@ -29,7 +29,7 @@
           <input 
             id="password" 
             v-model="password"
-            v-validate="'required|alpha_num|min:8|max:30'"
+            v-validate="'required|min:8|max:30|verify_password'"
             name="password"
             class="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-primary" 
             type="password" 
@@ -82,18 +82,28 @@ import { Validator } from "vee-validate";
 const confirmResetPasswordURL =
   "https://api.emrys.io/auth/confirm-reset-password";
 
-// TODO: move all dict rules to somewhere global
+// TODO: move all dict rules & extension to somewhere global
 const dict = {
   custom: {
     password: {
       required: "Required",
-      alpha_num: "Alphanumeric characters only",
       min: "Must be at least 8 characters",
       max: "Must be less than 30 characters"
     }
   }
 };
 Validator.localize("en", dict);
+Validator.extend("verify_password", {
+  getMessage(field: string) {
+    return `The password must contain at least: 1 uppercase letter, 1 lowercase letter, 1 number, and one special character (E.g. , . _ & ? etc)`;
+  },
+  validate(value: string) {
+    const strongRegex = new RegExp(
+      "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~])"
+    );
+    return strongRegex.test(value);
+  }
+});
 
 export default Vue.extend({
   name: "ConfirmResetPassword",

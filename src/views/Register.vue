@@ -126,7 +126,7 @@
           <input 
             id="password" 
             v-model="password"
-            v-validate="'required|alpha_num|min:8|max:30'"
+            v-validate="'required|min:8|max:30|verify_password'"
             name="password"
             class="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-primary" 
             type="password" 
@@ -268,6 +268,17 @@ const dict = {
   }
 };
 Validator.localize("en", dict);
+Validator.extend("verify_password", {
+  getMessage(field: string) {
+    return `The password must contain at least: 1 uppercase letter, 1 lowercase letter, 1 number, and one special character (E.g. , . _ & ? etc)`;
+  },
+  validate(value: string) {
+    const strongRegex = new RegExp(
+      "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~])"
+    );
+    return strongRegex.test(value);
+  }
+});
 
 export default Vue.extend({
   name: "Register",
