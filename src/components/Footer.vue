@@ -91,7 +91,7 @@
           <li>
             <a 
               target="_blank" 
-              href="https://join.slack.com/t/emrysio/shared_invite/enQtNjE2NTg5MzUwNzA5LTIxY2M2NzExMWQ5MmFhYzQ1YTZlMWViNjIwYjgyZGZhZTczOTE5YmNhZjhiNTY5OTFjNzE1NDc0ZDc4OGRlZWY"
+              href="https://join.slack.com/t/emrysio/shared_invite/enQtNjQ2NTczMzU2NjI0LWQ1OTlmMzFkOWQyZTk3OTJkM2UzZTlmMGUyNjE0MWUyNjkzMmFmYzdlM2FjYzcxZWU0ZGY1ZjQ0ZGExZjUxOGQ"
             >
               Slack
             </a>
