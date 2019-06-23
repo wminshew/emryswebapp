@@ -55,14 +55,14 @@
           >
             About
           </router-link>
-          <router-link
-            v-show="!loggedIn"
+          <a
             class="navbar-link"
             active-class="navbar-link-current"
-            :to="{name: 'faq'}"
+            href="https://docs.emrys.io/"
+            target="_blank"
           >
-            FAQ
-          </router-link>
+            Docs
+          </a>
           <!-- <router&#45;link -->
           <!-- v-show="!loggedIn" -->
           <!--   class="navbar&#45;link" -->
@@ -79,6 +79,14 @@
           <!-- > -->
           <!--   Suppliers -->
           <!-- </router&#45;link> -->
+          <router-link
+            v-show="!loggedIn"
+            class="navbar-link"
+            active-class="navbar-link-current"
+            :to="{name: 'faq'}"
+          >
+            FAQ
+          </router-link>
           <router-link
             v-show="!loggedIn"
             class="navbar-link"
@@ -144,16 +152,16 @@
           </router-link>
         </div>
         <div
-          v-show="!loggedIn"
           class="navbar-dropdown"
         >
-          <router-link
+          <a
             class="navbar-dropdown-text"
             active-class="navbar-dropdown-current"
-            :to="{name: 'faq'}"
+            href="https://docs.emrys.io/"
+            target="_blank"
           >
-            FAQ
-          </router-link>
+            Docs
+          </a>
         </div>
         <!-- <div -->
         <!-- v-show="!loggedIn" -->
@@ -179,6 +187,18 @@
         <!--     Suppliers -->
         <!--   </router&#45;link> -->
         <!-- </div> -->
+        <div
+          v-show="!loggedIn"
+          class="navbar-dropdown"
+        >
+          <router-link
+            class="navbar-dropdown-text"
+            active-class="navbar-dropdown-current"
+            :to="{name: 'faq'}"
+          >
+            FAQ
+          </router-link>
+        </div>
         <div
           v-show="!loggedIn"
           class="navbar-dropdown"
