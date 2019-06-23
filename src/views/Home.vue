@@ -29,28 +29,16 @@
         </div>
         <div>
           <a
-            href="https://docs.emrys.io/docs/users/tutorial/"
+            href="https://drift.me/wminshew"
             target="_blank"
           >
             <button 
-              class="btn btn-secondary border-2"
+              id="schedule-meeting-button"
+              class="btn btn-primary text-sm font-hairline"
               style="min-width: 120px;"
               type="button"
             >
-              Use
-            </button>
-          </a>
-          <a
-            class="ml-6"
-            href="https://docs.emrys.io/docs/suppliers/config"
-            target="_blank"
-          >
-            <button 
-              class="btn btn-secondary border-2"
-              style="min-width: 120px;"
-              type="button"
-            >
-              Supply
+              Schedule a Demo
             </button>
           </a>
         </div>
