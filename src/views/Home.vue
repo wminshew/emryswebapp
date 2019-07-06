@@ -29,19 +29,46 @@
         </div>
         <div>
           <a
-            href="https://drift.me/wminshew"
+            href="https://docs.emrys.io/docs/users/tutorial/"
             target="_blank"
           >
             <button 
-              id="schedule-meeting-button"
-              class="btn btn-primary text-sm font-hairline"
+              class="btn btn-secondary border-2"
               style="min-width: 120px;"
               type="button"
             >
-              Schedule a Demo
+              Use
+            </button>
+          </a>
+          <a
+            class="ml-6"
+            href="https://docs.emrys.io/docs/suppliers/config"
+            target="_blank"
+          >
+            <button 
+              class="btn btn-secondary border-2"
+              style="min-width: 120px;"
+              type="button"
+            >
+              Supply
             </button>
           </a>
         </div>
+        <!-- <div> -->
+        <!--   <a -->
+        <!--     href="https://drift.me/wminshew" -->
+        <!--     target="_blank" -->
+        <!--   > -->
+        <!--     <button  -->
+        <!--       id="schedule&#45;meeting&#45;button" -->
+        <!--       class="btn btn&#45;primary text&#45;sm font&#45;hairline" -->
+        <!--       style="min&#45;width: 120px;" -->
+        <!--       type="button" -->
+        <!--     > -->
+        <!--       Schedule a Demo -->
+        <!--     </button> -->
+        <!--   </a> -->
+        <!-- </div> -->
       </div>
     </div>
   </div>
