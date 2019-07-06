@@ -55,14 +55,6 @@
           >
             About
           </router-link>
-          <a
-            class="navbar-link"
-            active-class="navbar-link-current"
-            href="https://docs.emrys.io/"
-            target="_blank"
-          >
-            Docs
-          </a>
           <!-- <router&#45;link -->
           <!-- v-show="!loggedIn" -->
           <!--   class="navbar&#45;link" -->
@@ -87,6 +79,14 @@
           >
             FAQ
           </router-link>
+          <a
+            class="navbar-link"
+            active-class="navbar-link-current"
+            href="https://docs.emrys.io/"
+            target="_blank"
+          >
+            Docs
+          </a>
           <router-link
             v-show="!loggedIn"
             class="navbar-link"
@@ -151,18 +151,6 @@
             About
           </router-link>
         </div>
-        <div
-          class="navbar-dropdown"
-        >
-          <a
-            class="navbar-dropdown-text"
-            active-class="navbar-dropdown-current"
-            href="https://docs.emrys.io/"
-            target="_blank"
-          >
-            Docs
-          </a>
-        </div>
         <!-- <div -->
         <!-- v-show="!loggedIn" -->
         <!--   class="navbar&#45;dropdown" -->
@@ -198,6 +186,18 @@
           >
             FAQ
           </router-link>
+        </div>
+        <div
+          class="navbar-dropdown"
+        >
+          <a
+            class="navbar-dropdown-text"
+            active-class="navbar-dropdown-current"
+            href="https://docs.emrys.io/"
+            target="_blank"
+          >
+            Docs
+          </a>
         </div>
         <div
           v-show="!loggedIn"
