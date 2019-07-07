@@ -44,7 +44,7 @@
         <div class="relative md:w-2/3">
           <span
             v-if="errors.has('firstName')" 
-            class="absolute w-full text-xs text-red"
+            class="flex w-full text-xs text-red"
           >{{ errors.first('firstName') }}
           </span>
         </div>
@@ -76,7 +76,7 @@
         <div class="relative md:w-2/3">
           <span
             v-if="errors.has('lastName')" 
-            class="absolute w-full text-xs text-red"
+            class="flex w-full text-xs text-red"
           >{{ errors.last('lastName') }}
           </span>
         </div>
@@ -108,7 +108,7 @@
         <div class="relative md:w-2/3">
           <span
             v-if="errors.has('email')" 
-            class="absolute w-full text-xs text-red"
+            class="flex w-full text-xs text-red"
           >{{ errors.first('email') }}
           </span>
         </div>
@@ -142,6 +142,47 @@
             v-if="errors.has('password')" 
             class="flex w-full text-xs text-red"
           >{{ errors.first('password') }}
+          </span>
+        </div>
+      </div>
+      <div class="md:flex md:items-center mt-6">
+        <div class="md:w-1/3">
+          <label 
+            class="block text-grey text-left md:text-right mb-1 md:mb-0 pr-4" 
+            for="promoCode"
+          >
+            Promo
+          </label>
+        </div>
+        <div class="md:w-2/3">
+          <input 
+            id="promoCode" 
+            v-model="promoCode"
+            name="promoCode"
+            class="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-primary" 
+            type="text" 
+            placeholder=""
+            @change="debouncedGetPromo"
+          >
+        </div>
+      </div>
+      <div class="text-left md:flex">
+        <div class="md:w-1/3" />
+        <div class="relative md:w-2/3">
+          <span
+            v-if="promoValid" 
+            class="flex w-full text-xs text-primary"
+          > Promo valid
+          </span>
+        </div>
+      </div>
+      <div class="text-left md:flex">
+        <div class="md:w-1/3" />
+        <div class="relative md:w-2/3">
+          <span
+            v-if="promoInvalid" 
+            class="flex w-full text-xs text-red"
+          >{{ promoInvalidText }}
           </span>
         </div>
       </div>
@@ -244,8 +285,10 @@ import Vue from "vue";
 import Alert from "@/components/Alert.vue";
 import axios from "axios";
 import { Validator } from "vee-validate";
+import { debounce } from "ts-debounce";
 
 const registerURL = "https://api.emrys.io/auth/account";
+const getPromoURL = "https://api.emrys.io/auth/promo";
 
 const dict = {
   custom: {
@@ -261,7 +304,6 @@ const dict = {
     },
     password: {
       required: "Required",
-      alpha_num: "Alphanumeric characters only",
       min: "Must be at least 8 characters",
       max: "Cannot be greater than 30 characters"
     }
@@ -291,6 +333,10 @@ export default Vue.extend({
       firstName: "",
       lastName: "",
       password: "",
+      promoCode: "",
+      promoValid: false,
+      promoInvalid: false,
+      promoInvalidText: "",
       checkedUser: true,
       checkedSupplier: true,
       checkedTOSAndPrivacy: false,
@@ -307,7 +353,40 @@ export default Vue.extend({
       return this.validateForm();
     }
   },
+  created() {
+    this.debouncedGetPromo = debounce(this.getPromo, 500);
+  },
   methods: {
+    debouncedGetPromo() {
+      // empty
+    },
+    getPromo() {
+      axios({
+        method: "get",
+        url: getPromoURL,
+        params: {
+          promo: this.promoCode
+        },
+        validateStatus: status => {
+          return status >= 200 && status < 300; // axios default
+        }
+      })
+        .then(resp => {
+          this.promoValid = true;
+          this.promoInvalid = false;
+        })
+        .catch(error => {
+          if (error.response) {
+            this.promoInvalidText = error.response.data.trim();
+          } else if (error.request) {
+            this.promoInvalidText = "Error: no server response received";
+          } else {
+            this.promoInvalidText = error.message.trim();
+          }
+          this.promoInvalid = true;
+          this.promoValid = false;
+        });
+    },
     validateForm(): boolean {
       if (!this.checkedTOSAndPrivacy) {
         return false;
@@ -344,6 +423,7 @@ export default Vue.extend({
           params: {
             user: this.checkedUser ? "1" : "",
             miner: this.checkedSupplier ? "1" : "",
+            promo: this.promoCode,
             terms: this.checkedTOSAndPrivacy ? "1" : ""
           },
           validateStatus: status => {
