@@ -13,7 +13,7 @@
       class="bg-white"
       :bearer-token.sync="bearerToken"
     />
-    <footer />
+    <Footer />
   </div>
 </template>
 
