@@ -333,7 +333,7 @@ export default Vue.extend({
       firstName: "",
       lastName: "",
       password: "",
-      promoCode: "",
+      promoCode: this.$route.query.promo || "",
       promoValid: false,
       promoInvalid: false,
       promoInvalidText: "",

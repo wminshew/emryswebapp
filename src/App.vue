@@ -3,6 +3,7 @@
     id="app"
     style="height: 100vh;"
   >
+    <banner />
     <nav-bar
       :bearer-token.sync="bearerToken"
     />
@@ -10,12 +11,13 @@
       class="bg-white"
       :bearer-token.sync="bearerToken"
     />
-    <Footer />
+    <footer />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import Banner from "@/components/Banner.vue";
 import NavBar from "@/components/NavBar.vue";
 import Footer from "@/components/Footer.vue";
 import axios from "axios";
@@ -23,6 +25,7 @@ import axios from "axios";
 export default Vue.extend({
   name: "App",
   components: {
+    Banner,
     NavBar,
     /* eslint-disable vue/no-unused-components */
     Footer
