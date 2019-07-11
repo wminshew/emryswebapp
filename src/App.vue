@@ -3,7 +3,9 @@
     id="app"
     style="height: 100vh;"
   >
-    <banner />
+    <banner
+      v-show="!loggedIn"
+    />
     <nav-bar
       :bearer-token.sync="bearerToken"
     />
@@ -34,6 +36,11 @@ export default Vue.extend({
     return {
       bearerToken: ""
     };
+  },
+  computed: {
+    loggedIn(): boolean {
+      return this.bearerToken !== "";
+    }
   },
   watch: {
     bearerToken(newToken) {
