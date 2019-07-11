@@ -172,7 +172,7 @@
           <span
             v-if="promoValid" 
             class="flex w-full text-xs text-primary"
-          > Promo valid
+          > Valid promo
           </span>
         </div>
       </div>
@@ -182,7 +182,7 @@
           <span
             v-if="promoInvalid" 
             class="flex w-full text-xs text-red"
-          >{{ promoInvalidText }}
+          >{{ promoInvalidText | capitalize }}
           </span>
         </div>
       </div>
