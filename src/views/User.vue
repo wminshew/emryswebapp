@@ -121,7 +121,7 @@
           </button>
         </router-link>
         <router-link
-          class="md:w-1/4 md:ml-16"
+          class="md:w-1/4 md:ml-6"
           :to="{name: 'register'}"
         >
           <button 
