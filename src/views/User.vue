@@ -69,7 +69,7 @@
         >
           <img 
             class="max-w-lg mx-auto mt-8 md:mt-2 md:pr-6 lg:pr-16"
-            alt="example emrys run" 
+            alt="vector image of suppliers competing for emrys jobs" 
             src="@/assets/user/emrys-network.png"
           >
         </div>
@@ -100,7 +100,7 @@
         >
           <img 
             class="inline max-w-lg mt-8 md:mt-2 md:pl-6"
-            alt="example emrys run" 
+            alt="example emrys notebook" 
             src="@/assets/user/jupyter-notebook.png"
           >
         </div>
