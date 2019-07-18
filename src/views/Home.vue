@@ -28,9 +28,8 @@
           Fast, efficient, effective.
         </div>
         <div>
-          <a
-            href="https://docs.emrys.io/docs/users/tutorial/"
-            target="_blank"
+          <router-link
+            :to="{name: 'user'}"
           >
             <button 
               class="btn btn-secondary border-2"
@@ -39,11 +38,10 @@
             >
               Use
             </button>
-          </a>
-          <a
+          </router-link>
+          <router-link
             class="ml-6"
-            href="https://docs.emrys.io/docs/suppliers/config"
-            target="_blank"
+            :to="{name: 'supplier'}"
           >
             <button 
               class="btn btn-secondary border-2"
@@ -52,23 +50,8 @@
             >
               Supply
             </button>
-          </a>
+          </router-link>
         </div>
-        <!-- <div> -->
-        <!--   <a -->
-        <!--     href="https://drift.me/wminshew" -->
-        <!--     target="_blank" -->
-        <!--   > -->
-        <!--     <button  -->
-        <!--       id="schedule&#45;meeting&#45;button" -->
-        <!--       class="btn btn&#45;primary text&#45;sm font&#45;hairline" -->
-        <!--       style="min&#45;width: 120px;" -->
-        <!--       type="button" -->
-        <!--     > -->
-        <!--       Schedule a Demo -->
-        <!--     </button> -->
-        <!--   </a> -->
-        <!-- </div> -->
       </div>
     </div>
   </div>
