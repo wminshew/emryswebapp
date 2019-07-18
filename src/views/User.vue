@@ -12,7 +12,6 @@
       >
         Save time & money with emrys
       </h1>
-
       <div
         class="mt-8 md:mt-12 md:flex"
       >
@@ -43,7 +42,6 @@
           >
         </div>
       </div>
-
       <div
         class="mt-12 md:mt-16 md:flex md:flex-row-reverse"
       >
@@ -74,7 +72,6 @@
           >
         </div>
       </div>
-
       <div
         class="mt-12 md:mt-16 md:flex"
       >
@@ -105,7 +102,6 @@
           >
         </div>
       </div>
-
       <div
         class="w-full md:flex md:justify-center mt-4 py-8 md:py-16"
       >
