@@ -355,6 +355,9 @@ export default Vue.extend({
   },
   created() {
     this.debouncedGetPromo = debounce(this.getPromo, 500);
+    if (this.promoCode !== "") {
+      this.getPromo();
+    }
   },
   methods: {
     debouncedGetPromo() {
