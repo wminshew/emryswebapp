@@ -165,7 +165,7 @@ const faqs: FaqObject[] = [
   {
     id: 0,
     question: "Will my machine be secure?",
-    answer: `We believe so, and our running our own machines on the network. 
+    answer: `We believe so, and are running our own machines on the network. 
 		Security can never be perfect, but jobs are executed 
     in tightly locked down containers as unprivileged users with all kernel 
     capabilities dropped and the no-new-privileges flag enabled. Additional 
