@@ -11,10 +11,10 @@
       >
         <span
           class="hidden sm:flex"
-        >Register with promo {{ bannerPromo }} to receive $50 in emrys credit for your early jobs</span>
+        >Register with promo {{ bannerPromo }} to receive $25 in emrys credit for your early jobs</span>
         <span
           class="sm:hidden"
-        >Register with promo {{ bannerPromo }} for $50 of credit</span>
+        >Register with promo {{ bannerPromo }} for $25 of credit</span>
       </div>
     </div>
   </router-link>
@@ -23,7 +23,7 @@
 <script lang="ts">
 import Vue from "vue";
 
-const bannerPromo = "BETA50";
+const bannerPromo = "BETA25";
 
 export default Vue.extend({
   name: "Banner",
