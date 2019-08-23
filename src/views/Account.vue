@@ -28,7 +28,9 @@
         </p>
       </div>
       <span v-if="isUser">
-        <h2>
+        <h2
+          class="pt-10"
+        >
           <span>Payments</span>
           <img 
             class="pl-4 align-middle"
@@ -98,7 +100,9 @@
         </div>
       </span>
       <span v-if="isMiner">
-        <h2>
+        <h2
+          class="pt-10"
+        >
           <span>Payouts</span>
           <img 
             class="pl-4 align-middle"
@@ -157,7 +161,9 @@
           </div>
         </div>
       </span>
-      <h2>
+      <h2
+        class="pt-10"
+      >
         <router-link
           :to="{
             name: 'confirm-reset-password',
