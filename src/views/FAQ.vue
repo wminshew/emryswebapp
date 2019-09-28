@@ -90,7 +90,7 @@ const faqs: FaqObject[] = [
   {
     id: 0,
     question: "Which GPUs are available?",
-    answer: `For now, we only allow relatively new nvidia GPUs on our 
+    answer: `For now, we only use relatively new nvidia GPUs on our 
     platform (nothing below gtx9XX). We will refine our cutoff when more 
     data is available.`
   },
@@ -104,56 +104,14 @@ const faqs: FaqObject[] = [
   },
   {
     id: 0,
-    question: "What fees does emrys charge?",
-    answer: `Today, <strong>none</strong>. Obviously we can't run a business 
-    like that forever, but we're dedicated to keeping market friction minimized,
-    and we'd like to keep longer jobs competitive. We're toying around with a 
-    sliding model beginning at 20% and scaling down to 5% as the job lengthens, 
-    but will keep participants informed if we make any changes. We're also 
-    considering a purely fixed-cost access model, a la CostCo.`
-  },
-  {
-    id: 0,
     question: "Can I launch jupyter notebooks?",
     answer: `Yes! The CLI has a subcommand (emrys notebook) for launching remote
 		jupyter kernels, which may then be accessed from your localhost.`
   },
   {
     id: 0,
-    question: "How often will I be charged / paid?",
+    question: "How often will I be charged?",
     answer: `Monthly.`
-  },
-  {
-    id: 0,
-    question: "Will I get paid for idling on the network?",
-    answer: `No, suppliers are only paid for jobs completed. However, the 
-    supplier has the ability to run another command while idle on the network. 
-    Many suppliers use this to mine cryptocurrencies between jobs.`
-  },
-  {
-    id: 0,
-    question: "Can I pay / get paid in crypto?",
-    answer: `Not today, but we hope to support more currencies in the future.`
-  },
-  {
-    id: 0,
-    question: "What happens if I win a job but fail to complete it?",
-    answer: `Suppliers are stiffly penalized for failing jobs. Whether this 
-    happens accidentally via internet failure or intentionally via manually 
-    canceling or hardware fraud (which we monitor closely) does not matter.`
-  },
-  {
-    id: 0,
-    question: "What happens if a miner fails to complete my job?",
-    answer: `We expect this to be rare but you will not be charged for the time,
-    and will grant add'l credits on a case-by-case basis.`
-  },
-  {
-    id: 0,
-    question: `What happens the job is completed but I suspect the miner was somehow fradulent
-    (i.e. used hardware less than your requirements)?`,
-    answer: `We have extensive supplier checks & monitoring in place and so expect this to be rare,
-    but email support for add'l analysis and if confirmed you will be handsomely rewarded.`
   },
   {
     id: 0,
@@ -161,30 +119,6 @@ const faqs: FaqObject[] = [
     answer: `We have extensive job checks & monitoring in place and if we detect the disk quota is
     exceeded will promptly cancel the job. You will still be charged accordingly. (Disk space is
     relatively cheap, and we require a buffer so we hope this won't happen often.`
-  },
-  {
-    id: 0,
-    question: "Will my machine be secure?",
-    answer: `We believe so, and are running our own machines on the network. 
-		Security can never be perfect, but jobs are executed 
-    in tightly locked down containers as unprivileged users with all kernel 
-    capabilities dropped and the no-new-privileges flag enabled. Additional 
-    security measures are recommnded in our 
-    <a
-      target="_blank"
-      href="https://docs.emrys.io/docs/installation/#best-practices"
-    >
-      supplier best practices
-    </a>. In the future, we intend to open source our client 
-    to further enhance the security.`
-  },
-  {
-    id: 0,
-    question: "Will my data set and model be secure?",
-    answer: `The short answer to this is no. If you're training with 
-    proprietary data, we cannot recommend our platform for you, as any 
-    supplier could theoretically copy your data set or output weights. 
-    We do, however, have plans to tackle this in the future.`
   },
   {
     id: 0,

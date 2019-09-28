@@ -34,13 +34,6 @@
           </li>
           <li>
             <router-link
-              :to="{ name: 'supplier' }"
-            >
-              Suppliers
-            </router-link>
-          </li>
-          <li>
-            <router-link
               :to="{ name: 'docs' }"
             >
               Documentation

@@ -20,12 +20,12 @@
         <div
           class="mb-4 text-4xl md:text-5xl md:mb-0"
         >
-          Peer to Peer GPU Compute
+          The cheapest cloud GPU rentals
         </div>
         <div
           class="text-lg md:text-xl mb-6"
         >
-          Fast, efficient, effective.
+          Guaranteed.
         </div>
         <div>
           <router-link
@@ -36,19 +36,7 @@
               style="min-width: 120px;"
               type="button"
             >
-              Use
-            </button>
-          </router-link>
-          <router-link
-            class="ml-6"
-            :to="{name: 'supplier'}"
-          >
-            <button 
-              class="btn btn-secondary border-2"
-              style="min-width: 120px;"
-              type="button"
-            >
-              Supply
+              Learn More
             </button>
           </router-link>
         </div>
