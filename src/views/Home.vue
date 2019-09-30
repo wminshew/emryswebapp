@@ -18,7 +18,7 @@
     >
       <div>
         <div
-          class="mb-4 text-4xl md:text-5xl md:mb-0"
+          class="mx-2 mb-4 text-4xl md:text-5xl md:mb-0"
         >
           The cheapest cloud GPU rentals
         </div>
