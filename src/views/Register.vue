@@ -194,7 +194,7 @@
             I want to
           </label>
         </div>
-        <label class="block text-grey align-middle mb-1 md:mb-0 md:w-1/3">
+        <label class="block text-grey align-middle mb-1 md:mb-0 md:w-2/3">
           <input 
             id="user"
             v-model="checkedUser"
@@ -205,18 +205,6 @@
             class="text-sm text-grey-dark"
             for="user"
           > Use GPUs</label>
-        </label>
-        <label class="block text-grey align-middle mb-1 md:mb-0 md:w-1/3">
-          <input 
-            id="supplier"
-            v-model="checkedSupplier"
-            class="align-middle"
-            type="checkbox"
-          >
-          <label
-            class="text-sm text-grey-dark"
-            for="supplier"
-          > Supply GPUs</label>
         </label>
       </div>
       <div class="align-middle text-left md:flex md:text-center md:items-center mt-6">

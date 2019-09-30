@@ -73,15 +73,6 @@ export default new Router({
       component: () => import(/* webpackChunkName: "user" */ "./views/User.vue")
     },
     {
-      path: "/supplier",
-      name: "supplier",
-      // route level code-splitting
-      // this generates a separate chunk (supplier.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "supplier" */ "./views/Supplier.vue")
-    },
-    {
       path: "/login",
       name: "login",
       // route level code-splitting

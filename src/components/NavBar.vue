@@ -67,14 +67,6 @@
             v-show="!loggedIn"
             class="navbar-link"
             active-class="navbar-link-current"
-            :to="{name: 'supplier'}"
-          >
-            Suppliers
-          </router-link>
-          <router-link
-            v-show="!loggedIn"
-            class="navbar-link"
-            active-class="navbar-link-current"
             :to="{name: 'faq'}"
           >
             FAQ
