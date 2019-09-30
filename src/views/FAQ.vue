@@ -97,16 +97,15 @@ const faqs: FaqObject[] = [
   {
     id: 0,
     question: "How is pricing determined?",
-    answer: `Each job is auctioned to idle suppliers meeting 
-    the user-defined hardware requirements. YMMV, but as a rule of thumb 
-    we expect a gtx1080Ti to be available for somewhere between $0.1 and 
-    $0.2 / hr (to be refined with more data).`
+    answer: `Each job is auctioned to suppliers meeting 
+    the user's hardware requirements. GTX 1080 Ti's are typically available 
+    for $0.1-0.2 / hr.`
   },
   {
     id: 0,
-    question: "Can I launch jupyter notebooks?",
-    answer: `Yes! The CLI has a subcommand (emrys notebook) for launching remote
-		jupyter kernels, which may then be accessed from your localhost.`
+    question: "Can I use jupyter notebooks?",
+    answer: `Yes! The subcommand 'emrys notebook' will launch a remote
+		jupyter kernel accessible via localhost.`
   },
   {
     id: 0,
@@ -116,23 +115,13 @@ const faqs: FaqObject[] = [
   {
     id: 0,
     question: `What if my job exceeds my requested disk quota?`,
-    answer: `We have extensive job checks & monitoring in place and if we detect the disk quota is
-    exceeded will promptly cancel the job. You will still be charged accordingly. (Disk space is
-    relatively cheap, and we require a buffer so we hope this won't happen often.`
+    answer: `We have extensive job checks & monitoring in place. If we detect the disk quota is
+    exceeded, your job will be canceled & you will be charged accordingly.`
   },
   {
     id: 0,
     question: "What is your mission?",
-    answer: `Our mission is to drive humanity forward by making massively 
-    parallel compute as cheap & accessible as imaginable.`
-  },
-  {
-    id: 0,
-    question: "What is your vision?",
-    answer: `As compute continues to commodify, our vision is to become a 
-    central clearinghouse through which companies & individuals can access 
-    compute primitives from a variety of providers without worrying about 
-    lock-in.`
+    answer: `Making AI affordable & accessible to everyone.`
   },
   {
     id: 0,

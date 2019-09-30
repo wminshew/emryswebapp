@@ -103,7 +103,7 @@
         class="w-full text-center py-4 md:text-left md:w-1/2"
       >
         <h2>Mission</h2>
-        <p>Drive humanity forward by making massively parallel compute as cheap & accessible as imaginable.</p>
+        <p>Making AI affordable & accessible to everyone.</p>
       </div>
     </div>
   </div>
