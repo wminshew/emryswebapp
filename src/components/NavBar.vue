@@ -162,18 +162,6 @@
           <router-link
             class="navbar-dropdown-text"
             active-class="navbar-dropdown-current"
-            :to="{name: 'supplier'}"
-          >
-            Suppliers
-          </router-link>
-        </div>
-        <div
-          v-show="!loggedIn"
-          class="navbar-dropdown"
-        >
-          <router-link
-            class="navbar-dropdown-text"
-            active-class="navbar-dropdown-current"
             :to="{name: 'faq'}"
           >
             FAQ
