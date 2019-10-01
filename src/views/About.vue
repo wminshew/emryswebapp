@@ -13,14 +13,14 @@
         What is emrys?
       </h2>
       <p>
-        Emrys provides the cheapest cloud GPU rentals.
+        Emrys is a cloud GPU provider. We guarantee the lowest prices.
       </p>
 
       <h2>
         Why would I use emrys?
       </h2>
       <p>
-        You either rent cloud GPUs today and are looking to (significantly) cut costs, or are looking to train many deep learning models in parallel without having to worry about the infrastructure overhead.
+        You rent cloud GPUs today and are looking to (significantly) cut costs, or are looking to train many deep learning models in parallel without having to worry about the infrastructure overhead.
       </p>
 
       <h2>

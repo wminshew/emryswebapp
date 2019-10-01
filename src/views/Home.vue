@@ -39,6 +39,18 @@
               Learn More
             </button>
           </router-link>
+          <router-link
+            class="ml-6"
+            :to="{name: 'register'}"
+          >
+            <button 
+              class="btn btn-primary border-primary border-2"
+              style="min-width: 120px;"
+              type="button"
+            >
+              Start Saving
+            </button>
+          </router-link>
         </div>
       </div>
     </div>
