@@ -20,12 +20,12 @@
         <div
           class="mx-2 mb-4 text-4xl md:text-5xl md:mb-0"
         >
-          The cheapest cloud GPU rentals
+          Affordable Cloud GPUs
         </div>
         <div
           class="text-lg md:text-xl mb-6"
         >
-          Guaranteed.
+          90+% cheaper than leading cloud providers
         </div>
         <div>
           <router-link
