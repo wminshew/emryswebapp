@@ -3,7 +3,7 @@
     id="home"
   >
     <div 
-      class="relative max-h-screen m-auto overflow-hidden py-32 lg:py-0"
+      class="relative max-h-screen m-auto overflow-hidden py-32 sm:py-0"
       style="max-height:80vh;"
     >
       <img
