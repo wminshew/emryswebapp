@@ -4,17 +4,17 @@
   >
     <div 
       id="banner" 
-      class="flex flex-wrap justify-center border-b border-grey-light shadow-1 bg-primary"
+      class="flex flex-wrap py-1 justify-center border-grey-light shadow-1 bg-primary"
     >
       <div
-        class="max-w-lg flex flex-grow flex-no-wrap px-2 py-0 text-xs text-white text-left"
+        class="max-w-lg flex flex-grow flex-no-wrap px-2 py-0 text-lg text-white"
       >
         <span
           class="hidden sm:flex"
-        >Register with promo {{ bannerPromo }} to receive $25 in emrys credit for your early jobs</span>
+        >Register today and get your first week of jobs free!</span>
         <span
-          class="sm:hidden"
-        >Register with promo {{ bannerPromo }} for $25 of credit</span>
+          class="text-sm sm:hidden"
+        >Register today and get your first week free!</span>
       </div>
     </div>
   </router-link>
@@ -23,14 +23,7 @@
 <script lang="ts">
 import Vue from "vue";
 
-const bannerPromo = "BETA25";
-
 export default Vue.extend({
-  name: "Banner",
-  data() {
-    return {
-      bannerPromo
-    };
-  }
+  name: "Banner"
 });
 </script>
