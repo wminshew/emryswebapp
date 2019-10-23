@@ -13,7 +13,7 @@
         What is emrys?
       </h2>
       <p>
-        Emrys is a cloud GPU provider. We guarantee the lowest prices.
+        Emrys is a cloud GPU marketplace.
       </p>
 
       <h2>
