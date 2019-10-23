@@ -59,14 +59,6 @@
             v-show="!loggedIn"
             class="navbar-link"
             active-class="navbar-link-current"
-            :to="{name: 'user'}"
-          >
-            Users
-          </router-link>
-          <router-link
-            v-show="!loggedIn"
-            class="navbar-link"
-            active-class="navbar-link-current"
             :to="{name: 'faq'}"
           >
             FAQ
@@ -141,18 +133,6 @@
             :to="{name: 'about'}"
           >
             About
-          </router-link>
-        </div>
-        <div
-          v-show="!loggedIn"
-          class="navbar-dropdown"
-        >
-          <router-link
-            class="navbar-dropdown-text"
-            active-class="navbar-dropdown-current"
-            :to="{name: 'user'}"
-          >
-            Users
           </router-link>
         </div>
         <div

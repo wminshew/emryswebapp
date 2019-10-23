@@ -27,13 +27,6 @@
           </li>
           <li>
             <router-link
-              :to="{ name: 'user' }"
-            >
-              Users
-            </router-link>
-          </li>
-          <li>
-            <router-link
               :to="{ name: 'docs' }"
             >
               Documentation
