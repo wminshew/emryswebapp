@@ -3,12 +3,14 @@
     id="app"
     style="height: 100vh;"
   >
-    <banner
-      v-show="!loggedIn"
-    />
     <nav-bar
       :bearer-token.sync="bearerToken"
     />
+    
+    <banner
+      v-show="!loggedIn"
+    />
+
     <router-view
       class="bg-white"
       :bearer-token.sync="bearerToken"
