@@ -96,10 +96,10 @@
                 class="pb-4"
                 style="margin-top:0;"
               >
-                Cut-rate pricing
+                The fastest GPUs at the lowest prices
               </h2>
               <span>
-                Emrys suppliers compete for every job, leading to prices <strong>95+% cheaper</strong> than AWS.
+                Rent Nvidia GTX 2070 for <strong>$0.20 / hr</strong>.
               </span>
             </div>
           </div>
@@ -108,7 +108,7 @@
           >
             <img 
               class="max-w-lg mx-auto mt-8 md:mt-2 md:pr-6 lg:pr-16"
-              alt="emrys suppliers compete for jobs" 
+              alt="Rent Nvidia GTX 2070 for $0.20 / hr" 
               src="@/assets/user/emrys-network.png"
             >
           </div>
