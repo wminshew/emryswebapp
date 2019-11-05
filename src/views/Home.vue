@@ -4,7 +4,7 @@
   >
     <div 
       class="relative max-h-screen m-auto overflow-hidden"
-      style="max-height:80vh;"
+      style="height:80vh;"
     >
       <img
         class="h-full"
@@ -15,23 +15,22 @@
         alt="emrys"        
       >
       <div
-        class="w-full absolute pin flex text-white text-center justify-center items-center"
+        class="h-full absolute pin flex text-white text-center justify-center items-center"
         style="background: rgba(0, 0, 0, 0.7);"
       >
         <div>
           <div
-            class="mx-2 mb-4 text-4xl md:text-5xl md:mb-0"
+            class="mx-8 mb-6 text-4xl md:text-5xl md:mb-0"
           >
             Affordable cloud GPUs
           </div>
           <div
-            class="text-lg md:text-xl mb-6"
+            class="mx-8 text-lg md:text-xl mb-8"
           >
             90+% cheaper than leading cloud providers
           </div>
           <div>
             <router-link
-              class="ml-6"
               :to="{name: 'register'}"
             >
               <button 
@@ -44,7 +43,6 @@
             </router-link>
           </div>
         </div>
-      
       </div>
     </div>
     <div

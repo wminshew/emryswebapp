@@ -83,10 +83,11 @@ $base-black: #2C2C31;
     margin-bottom: 0.67em;
   }
 }
-#home {
-  @apply bg-grey-lightest;
 
-  & > img {
+#home {
+  @apply bg-white;
+
+  & > div > img {
       object-fit: cover;
       min-height: 80vh;
 
