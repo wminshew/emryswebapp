@@ -99,7 +99,7 @@
                 The fastest GPUs at the lowest prices
               </h2>
               <span>
-                Rent Nvidia GTX 2070 for <strong>$0.20 / hr</strong>.
+                Rent a GTX 1080 Ti for <strong>$0.10 / hr</strong>.
               </span>
             </div>
           </div>
