@@ -149,6 +149,38 @@
         <div class="md:w-1/3">
           <label 
             class="block text-grey text-left md:text-right mb-1 md:mb-0 pr-4" 
+            for="confirmPassword"
+          >
+            Confirm
+          </label>
+        </div>
+        <div class="md:w-2/3">
+          <input 
+            id="confirmPassword" 
+            v-model="confirmPassword"
+            v-validate="'required|confirm_password'"
+            name="confirmPassword"
+            class="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-primary" 
+            type="password" 
+            placeholder="****************"
+            required
+          >
+        </div>
+      </div>
+      <div class="text-left md:flex">
+        <div class="md:w-1/3" />
+        <div class="relative md:w-2/3">
+          <span
+            v-if="errors.has('confirmPassword')" 
+            class="flex w-full text-xs text-red"
+          >{{ errors.first('confirmPassword') }}
+          </span>
+        </div>
+      </div>
+      <div class="md:flex md:items-center mt-6">
+        <div class="md:w-1/3">
+          <label 
+            class="block text-grey text-left md:text-right mb-1 md:mb-0 pr-4" 
             for="promoCode"
           >
             Promo
@@ -185,27 +217,6 @@
           >{{ promoInvalidText | capitalize }}
           </span>
         </div>
-      </div>
-      <div class="align-middle text-left md:flex md:text-center md:items-center mt-6">
-        <div class="md:w-1/3">
-          <label 
-            class="block text-grey md:text-right mb-1 md:mb-0 pr-4" 
-          >
-            I want to
-          </label>
-        </div>
-        <label class="block text-grey align-middle mb-1 md:mb-0 md:w-2/3">
-          <input 
-            id="user"
-            v-model="checkedUser"
-            class="align-middle"
-            type="checkbox"
-          >
-          <label
-            class="text-sm text-grey-dark"
-            for="user"
-          > Use GPUs</label>
-        </label>
       </div>
       <div class="align-middle text-left md:flex md:text-center md:items-center mt-6">
         <div class="md:w-1/3">
@@ -294,6 +305,11 @@ const dict = {
       required: "Required",
       min: "Must be at least 8 characters",
       max: "Cannot be greater than 30 characters"
+    },
+    confirmPassword: {
+      required: "Required",
+      min: "Must be at least 8 characters",
+      max: "Cannot be greater than 30 characters"
     }
   }
 };
@@ -321,12 +337,13 @@ export default Vue.extend({
       firstName: "",
       lastName: "",
       password: "",
+      confirmPassword: "",
       promoCode: this.$route.query.promo || "",
       promoValid: false,
       promoInvalid: false,
       promoInvalidText: "",
       checkedUser: true,
-      checkedSupplier: true,
+      checkedSupplier: false,
       checkedTOSAndPrivacy: false,
       alertVisible: false,
       alertType: "success",
@@ -346,6 +363,15 @@ export default Vue.extend({
     if (this.promoCode !== "") {
       this.getPromo();
     }
+    const that = this;
+    Validator.extend("confirm_password", {
+      getMessage(field: string) {
+        return `Doesn't match password`;
+      },
+      validate(value: string) {
+        return value === that.password;
+      }
+    });
   },
   methods: {
     debouncedGetPromo() {
