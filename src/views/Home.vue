@@ -3,11 +3,11 @@
     id="home"
   >
     <div 
-      class="relative max-h-screen m-auto overflow-hidden"
-      style="height:80vh;"
+      class="relative h-screen m-auto overflow-hidden"
+      style="height:90vh;"
     >
       <img
-        class="h-full"
+        class="w-full"
         srcset="@/assets/hero-gray-375pt.png 375w,
                 @/assets/hero-gray-1200pt.png 1200w,
                 @/assets/hero-gray-2000pt.png 2000w"
@@ -15,7 +15,7 @@
         alt="emrys"        
       >
       <div
-        class="h-full absolute pin flex text-white text-center justify-center items-center"
+        class="w-full absolute pin flex text-white text-center justify-center items-center"
         style="background: rgba(0, 0, 0, 0.7);"
       >
         <div>

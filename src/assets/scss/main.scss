@@ -89,10 +89,10 @@ $base-black: #2C2C31;
 
   & > div > img {
       object-fit: cover;
-      min-height: 80vh;
+      min-height: 100vh;
 
       @media only screen and (min-width: config('screens.sm')) {
-        min-height: 70vh;
+        min-height: 100vh;
       }
   }
 }
