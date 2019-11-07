@@ -99,6 +99,68 @@
           </form>
         </div>
       </span>
+      <span v-if="isMiner">
+        <h2
+          class="pt-10"
+        >
+          <span>Payouts</span>
+          <img 
+            class="pl-4 align-middle"
+            src="@/assets/stripe/powered_by_stripe.svg"
+          >
+        </h2>
+        <loading-dots
+          class="h-8 w-8"
+          :loading="loadingStripePayouts"
+        />
+        <div v-show="!loadingStripePayouts">
+          <div class="flex w-full items-center md:w-auto">
+            <div v-if="registeredWithStripe">
+              <button
+                class="relative btn btn-primary flex items-center justify-center"
+                @click="getAccountStripeDashboard()"
+              >
+                <span :class="{ invisible: loadingDashboard }">
+                  Launch dashboard
+                  <img 
+                    class="h-6 w-6 py-1 align-middle"
+                    src="@/assets/svg-new-window/new-window.svg"
+                  >
+                </span>
+                <img 
+                  class="absolute w-full h-2 w-2"
+                  :class="{ invisible: !loadingDashboard }"
+                  style="top: calc(50% - 0.25rem);"
+                  src="@/assets/svg-loaders/three-dots.svg"
+                >
+              </button>
+            </div>
+            <div v-else>
+              <a
+                :href="connectWithStripeURL"
+              >
+                <button
+                  class="relative btn btn-primary flex items-center justify-center"
+                >
+                  <span :class="{ invisible: loadingDashboard }">
+                    Connect with stripe
+                    <img 
+                      class="h-6 w-6 py-1 align-middle"
+                      src="@/assets/svg-new-window/new-window.svg"
+                    >
+                  </span>
+                  <img 
+                    class="absolute w-full h-2 w-2"
+                    :class="{ invisible: !loadingDashboard }"
+                    style="top: calc(50% - 0.25rem);"
+                    src="@/assets/svg-loaders/three-dots.svg"
+                  >
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </span>
       <h2
         class="pt-10"
       >
