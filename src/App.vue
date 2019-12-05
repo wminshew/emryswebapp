@@ -7,9 +7,9 @@
       :bearer-token.sync="bearerToken"
     />
     
-    <banner
-      v-show="!loggedIn"
-    />
+    <!-- <banner -->
+    <!--   v&#45;show="!loggedIn" -->
+    <!-- /> -->
 
     <router-view
       class="bg-white"
@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Banner from "@/components/Banner.vue";
+// import Banner from "@/components/Banner.vue";
 import NavBar from "@/components/NavBar.vue";
 import Footer from "@/components/Footer.vue";
 import axios from "axios";
@@ -29,7 +29,7 @@ import axios from "axios";
 export default Vue.extend({
   name: "App",
   components: {
-    Banner,
+    // Banner,
     NavBar,
     /* eslint-disable vue/no-unused-components */
     Footer

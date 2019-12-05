@@ -29,19 +29,19 @@
           >
             90+% cheaper than leading cloud providers
           </div>
-          <div>
-            <router-link
-              :to="{name: 'register'}"
-            >
-              <button 
-                class="btn btn-primary border-primary border-2"
-                style="min-width: 120px;"
-                type="button"
-              >
-                Start with a free trial
-              </button>
-            </router-link>
-          </div>
+          <!-- <div> -->
+          <!--   <router&#45;link -->
+          <!--     :to="{name: 'register'}" -->
+          <!--   > -->
+          <!--     <button  -->
+          <!--       class="btn btn&#45;primary border&#45;primary border&#45;2" -->
+          <!--       style="min&#45;width: 120px;" -->
+          <!--       type="button" -->
+          <!--     > -->
+          <!--       Start with a free trial -->
+          <!--     </button> -->
+          <!--   </router&#45;link> -->
+          <!-- </div> -->
         </div>
       </div>
     </div>
