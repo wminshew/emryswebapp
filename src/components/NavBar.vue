@@ -79,18 +79,18 @@
           >
             Login
           </router-link>
-          <router-link
-            v-show="!loggedIn"
-            class="navbar-link"
-            :to="{name: 'register'}"
-          >
-            <button 
-              class="relative btn btn-primary items-center justify-center"
-              type="button"
-            >
-              Register
-            </button>
-          </router-link>
+          <!-- <router&#45;link -->
+          <!--   v&#45;show="!loggedIn" -->
+          <!--   class="navbar&#45;link" -->
+          <!--   :to="{name: 'register'}" -->
+          <!-- > -->
+          <!--   <button  -->
+          <!--     class="relative btn btn&#45;primary items&#45;center justify&#45;center" -->
+          <!--     type="button" -->
+          <!--   > -->
+          <!--     Register -->
+          <!--   </button> -->
+          <!-- </router&#45;link> -->
           <router-link
             v-show="loggedIn"
             class="navbar-link"
@@ -171,18 +171,18 @@
             Login
           </router-link>
         </div>
-        <div
-          v-show="!loggedIn"
-          class="navbar-dropdown"
-        >
-          <router-link
-            class="navbar-dropdown-text text-primary"
-            active-class="navbar-dropdown-current"
-            :to="{name: 'register'}"
-          >
-            Register
-          </router-link>
-        </div>
+        <!-- <div -->
+        <!--   v&#45;show="!loggedIn" -->
+        <!--   class="navbar&#45;dropdown" -->
+        <!-- > -->
+        <!--   <router&#45;link -->
+        <!--     class="navbar&#45;dropdown&#45;text text&#45;primary" -->
+        <!--     active&#45;class="navbar&#45;dropdown&#45;current" -->
+        <!--     :to="{name: 'register'}" -->
+        <!--   > -->
+        <!--     Register -->
+        <!--   </router&#45;link> -->
+        <!-- </div> -->
         <div
           v-show="loggedIn"
           class="navbar-dropdown"
